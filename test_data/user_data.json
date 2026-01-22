@@ -1,0 +1,11 @@
+{
+  "register_user": {
+    "firstName": "Pranay",
+    "lastName": "Samadhe"
+  },
+
+  "login_user": {
+    "email": "pranayfriendlydiamonds47@gmail.com",
+    "password": "pranayfriendlydiamonds47@gmail.com"
+  }
+}
