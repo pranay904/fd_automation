@@ -10,6 +10,8 @@ class BasePage:
         self.page = page
 
     def open_url(self, url):
+
+
         self.page.goto(url)
 
     def click(self, locator):
