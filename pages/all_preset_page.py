@@ -49,7 +49,7 @@ class PresetPage:
             self.page.go_back()
             self.page.wait_for_timeout(1500)
 
-        print(f"✅ {filter_type.capitalize()} '{value}' PASSED")
+        print(f" {filter_type.capitalize()} '{value}' PASSED")
 
     # ---------------- MIXED FILTERS ----------------
     def apply_verify_mixed_filters(self, filters: dict):
@@ -67,7 +67,7 @@ class PresetPage:
                 selected[filter_type] = selected_value
 
         if not selected:
-            raise AssertionError("❌ No filters applied")
+            raise AssertionError(" No filters applied")
 
         # TAG ASSERT
         self.base.assert_filter_tags(selected)
@@ -91,4 +91,4 @@ class PresetPage:
             self.page.go_back()
             self.page.wait_for_timeout(1500)
 
-        print(f"✅ Mixed filters PASSED: {selected}")
+        print(f" Mixed filters PASSED: {selected}")

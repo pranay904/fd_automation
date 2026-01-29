@@ -1,0 +1,8 @@
+contact_us:
+  message: "Automation test for Contact Us form"
+
+drop_hint:
+  product_name: "Custom Diamond Ring"
+
+gemologist:
+  message: "Need expert advice on diamond quality"

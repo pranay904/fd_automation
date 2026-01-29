@@ -77,7 +77,7 @@ class CommonFilters:
                 if self.normalize_metal(expected_value) == self.normalize_metal(text):
                     options.nth(i).click()
 
-                    # ✅ WAIT AFTER FILTER APPLIED
+                    #  WAIT AFTER FILTER APPLIED
                     self.page.wait_for_timeout(3000)
 
                     selected = self.normalize_metal(text)
@@ -88,7 +88,7 @@ class CommonFilters:
                 if expected_value.lower() in text.lower():
                     options.nth(i).click()
 
-                    # ✅ WAIT AFTER FILTER APPLIED
+                    #  WAIT AFTER FILTER APPLIED
                     self.page.wait_for_timeout(3000)
 
                     selected = text.strip()
@@ -118,10 +118,10 @@ class CommonFilters:
             print(f"Applied tag value:  {actual}")
 
             if expected_norm not in actual:
-                print(f"❌ Tag mismatch for {filter_type}: {expected_value}")
+                print(f" Tag mismatch for {filter_type}: {expected_value}")
                 return False
 
-        print("✅ Tag matched")
+        print(" Tag matched")
         return True
 
     # ---------------- PLP -> PDP VALIDATION ----------------

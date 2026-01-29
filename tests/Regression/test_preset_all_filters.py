@@ -32,3 +32,5 @@ def test_preset_filters(page, data):
         # single filter can be any one of metal/shape/style/carat
         for k, v in filter_values.items():
             preset.apply_verify_single_filter(k, v)
+
+
