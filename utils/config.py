@@ -14,6 +14,8 @@ LOGIN_URL = "https://frontendtwo.ap-diam.com/login"
 PRESET_URL = "https://friendlydiamonds.com/preset-engagement-rings"
 PAYMENT_URL = "https://payment.ap-diam.com/"
 
+CYO_R_URL = "https://friendlydiamonds.com/ring-settings"
+
 CONTACT_US_URL = "https://friendlydiamonds.com/contact-us"
 
 BESPOKE_JEWELRY_URL = "https://friendlydiamonds.com/customized-jewelry"

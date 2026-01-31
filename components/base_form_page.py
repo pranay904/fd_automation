@@ -29,11 +29,11 @@ class BaseFormPage(BasePage):
 
 
     def fill_email_contact(self, value):
-        locator = self.page.locator("(//input[@name='email'])[1]")
+        locator = self.page.locator("(//input[@name='email'])")
         expect(locator).to_be_visible(timeout=5000)  # wait up to 5s
         locator.fill(value)
 
-    def fill_email_jewelry(self, value):
+    def fill_email(self, value):
         locator = self.page.locator("(//input[@name='email'])[2]")
         expect(locator).to_be_visible(timeout=5000)
         locator.fill(value)
@@ -45,6 +45,7 @@ class BaseFormPage(BasePage):
 
     def fill_message(self, value):
         self.fill("(//textarea[@name='message'])[1]", value)
+
 
     # -------- file upload --------
     def upload_file(self, upload_button_selector, file_input_selector, file_path):
@@ -90,5 +91,53 @@ class BaseFormPage(BasePage):
         budget_option = self.page.locator("span:has-text('$2,000 - $3,000')")
         budget_option.wait_for(state="visible")
         budget_option.click()
+
+
+    # -------- Drop a Hint specific fields --------
+    DROP_HINT_NAME = "//input[@name='name']"
+    DROP_HINT_EMAIL = "//div[@class='col-md-12 pb-3 column']//input[@name='email']"
+    DROP_HINT_PARTNER_NAME = "//input[@name='partners_name']"
+    DROP_HINT_PARTNER_EMAIL = "//input[@name='partners_email']"
+    DROP_HINT_MESSAGE = "(//textarea[@name='message'])[1]"
+    DROP_HINT_SUBMIT = "//button[normalize-space()='submit']"
+
+    # -------- Drop a Hint full form method --------
+    def drop_hint_all_fields(self, name, email, partner_name, partner_email, message,):
+        # Fill Drop a Hint fields
+        locator = self.page.locator(self.DROP_HINT_NAME)
+        expect(locator).to_be_visible(timeout=5000)
+        locator.fill(name)
+
+        locator = self.page.locator(self.DROP_HINT_EMAIL)
+        expect(locator).to_be_visible(timeout=5000)
+        locator.fill(email)
+
+        locator = self.page.locator(self.DROP_HINT_PARTNER_NAME)
+        expect(locator).to_be_visible(timeout=5000)
+        locator.fill(partner_name)
+
+        locator = self.page.locator(self.DROP_HINT_PARTNER_EMAIL)
+        expect(locator).to_be_visible(timeout=5000)
+        locator.fill(partner_email)
+
+        locator = self.page.locator(self.DROP_HINT_MESSAGE)
+        expect(locator).to_be_visible(timeout=5000)
+        locator.fill(message)
+
+    def submit_gemo_drop_hint_form(self):
+        submit_btn = self.page.locator("button:has-text('Submit')")  # replace with actual locator
+        expect(submit_btn).to_be_enabled(timeout=5000)  # wait until button is clickable
+        submit_btn.click()
+
+
+
+
+
+
+
+
+
+
+
 
 
