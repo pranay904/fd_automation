@@ -3,10 +3,14 @@ import os
 # =========================================================
 # BASE SITE URLS
 # =========================================================
-BASE_URL = "https://frontendtwo.ap-diam.com/"
+BASE_URL = "https://payment.ap-diam.com/"
 
-REGISTER_URL = "https://frontendtwo.ap-diam.com/register"
-LOGIN_URL = "https://frontendtwo.ap-diam.com/login"
+REGISTER_URL = "https://payment.ap-diam.com/register"
+LOGIN_URL = "https://payment.ap-diam.com/login"
+
+CYO_R_URL = "https://payment.ap-diam.com/ring-settings"  # CYO Ring Settings URL
+DIAMOND_SETTING_URL = "https://payment.ap-diam.com/loose-diamonds?cyo=ring"  # Diamond Setting URL
+
 
 # =========================================================
 # MODULE URLS

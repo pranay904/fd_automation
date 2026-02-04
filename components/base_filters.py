@@ -18,14 +18,27 @@ class BaseFilters:
     CARAT_ITEMS = "//div[@class='drop_item_carat drop_item']//ul/li"
 
     # ---------------- FILTER TAG ----------------
-    FILTER_TAG_VALUE = "//div[contains(@class,'filter_tags')]//div[contains(@class,'tag_box')]/span[1]"
+    FILTER_TAG_VALUE = (
+        "//div[contains(@class,'filter_tags')]"
+        "//div[contains(@class,'tag_box')]/span[1]"
+    )
 
     # ---------------- NORMALIZERS ----------------
     def normalize_metal(self, text):
         if not text:
             return ""
+
         text = text.lower()
 
+        # PT metals
+        if "pt" in text:
+            if "950" in text:
+                return "PT 950"
+            if "600" in text:
+                return "PT 600"
+            return "PT"
+
+        # Gold metals
         karat_match = re.search(r'(10|14|18)\s*(k|kt)', text)
         karat = karat_match.group(1) if karat_match else ""
 
@@ -35,12 +48,13 @@ class BaseFilters:
             color = "Yellow"
         elif "rose" in text:
             color = "Rose"
-        elif "platinum" in text:
-            color = "Platinum"
         else:
             color = ""
 
-        return f"{karat}Kt {color} Gold".strip() if karat and color else text.strip()
+        if karat and color:
+            return f"{karat}Kt {color} Gold"
+
+        return text.strip()
 
     def normalize_text(self, text):
         return text.strip().lower() if text else ""

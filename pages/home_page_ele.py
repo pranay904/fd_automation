@@ -25,7 +25,6 @@ class Guest:
         cyo_button.click(force=True)
         time.sleep(2)
 
-
     def Shop(self):
         # with self.page.expect_navigation(wait_until="load"):
         shop = self.page.locator("(//span[contains(text(),'SHOP Fine jewelry')])[1]")
