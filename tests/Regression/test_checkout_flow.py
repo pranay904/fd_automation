@@ -27,14 +27,14 @@ def test_checkout_flow(browser):
     # Step 2: Navigate to the CYO Ring Settings page
     cyo_setting_plp_page.go_to()
 
-    # Step 3: Get product details (price, MRP, product name, metal color) for the first product on CYO Setting PLP
-    product_details = cyo_setting_plp_page.get_product_details(product_index=0)
+    # Step 3: Get product details (price, MRP, product name, metal color) for the second product
+    product_details = cyo_setting_plp_page.get_product_details()
 
     # Print the product details (for debugging or verification)
     print(f"Product details: {product_details}")
 
-    # Step 4: Click on the first product to go to the CYO Setting details page
-    cyo_setting_plp_page.click_product(product_index=0)
+    # Step 4: Click on the second product to go to the CYO Setting details page
+    cyo_setting_plp_page.click_product()
 
     # Step 5: Verify the product details on the CYO Setting details page
     cyo_setting_details_page.verify_product_details(product_details)
@@ -64,7 +64,4 @@ def test_checkout_flow(browser):
     # Step 12: Add to bag
     cart_page.add_to_bag()
 
-    # Step 13: Proceed to checkout (optional)
-    # checkout_page.proceed_to_checkout()
-    # checkout_page.fill_shipping_details(user_data)
-    # checkout_page.complete_checkout()
+
