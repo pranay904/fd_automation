@@ -1,5 +1,6 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 import time
+import re
 
 class CYOSettingPLPPage:
     def __init__(self, page: Page):
@@ -8,66 +9,50 @@ class CYOSettingPLPPage:
     def go_to(self):
         """Navigate to the CYO Ring Settings PLP page."""
         self.page.goto("https://payment.ap-diam.com/ring-settings")
-        # Ensure the page is fully loaded before interacting with the elements
         self.page.wait_for_selector("(//div[@class='product_box'])[2]", state="visible", timeout=10000)
 
     def get_product_details(self):
         """Extract details like price, MRP, product name, and active metal color from the second product."""
 
-        # Hardcode the locator to always select the second product
-        product_locator = self.page.locator("(//div[@class='product_box'])[2]")  # Selects the second product
-
-        # Wait for the product details container to be visible
+        product_locator = self.page.locator("(//div[@class='product_box'])[2]")
         product_locator.wait_for(state="visible", timeout=10000)
 
-        # Extract price within the context of the second product
-        price_locator = product_locator.locator("h4.mb-3:visible")  # Ensure it's scoped within the product
+        # Extract price
+        price_locator = product_locator.locator("h4.mb-3:visible")
         try:
-            price_locator.wait_for(state="visible", timeout=10000)  # Wait for price to appear
-            price = price_locator.inner_text().strip()
-            print(f"Price: {price}")  # Print the price value if successfully located
+            price_locator.wait_for(state="visible", timeout=10000)
+            price_text = price_locator.inner_text().strip()
+            price_parts = price_text.split()
+            price = price_parts[0]  # Selling price
+            mrp = price_parts[1] if len(price_parts) > 1 else product_locator.locator(".plp_mrp_box").inner_text().strip()
+            print(f"Price: {price}, MRP: {mrp}")
         except Exception as e:
-            price = "Not found"
-            print(f"Price not found: {e}")  # Print error if price is not found
+            price, mrp = "Not found", "Not found"
+            print(f"Error extracting price/MRP: {e}")
 
-        # Extract MRP (if available)
-        mrp_locator = product_locator.locator(".plp_mrp_box")
-        try:
-            mrp_locator.wait_for(state="visible", timeout=10000)
-            mrp = mrp_locator.inner_text().strip()
-            print(f"MRP: {mrp}")  # Print MRP value if successfully located
-        except Exception as e:
-            mrp = "Not found"
-            print(f"MRP not found: {e}")  # Print error if MRP is not found
-
-        # Extract dynamic product name from <h3 class="grid_view_mob_fs mb-0">
+        # Extract product name without "14kt White Gold" prefix
         product_name_locator = product_locator.locator("h3.grid_view_mob_fs.mb-0")
         try:
             product_name_locator.wait_for(state="visible", timeout=10000)
-            product_name = product_name_locator.inner_text().strip()
-            print(f"Product Name: {product_name}")  # Print the dynamic product name if successfully located
+            full_name = product_name_locator.inner_text().strip()
+            product_name = re.sub(r'^(14kt|18kt|Platinum)\s+(White|Rose|Yellow)\s+Gold\s+', '', full_name, flags=re.IGNORECASE)
+            print(f"Product Name: {product_name}")
         except Exception as e:
             product_name = "Not found"
-            print(f"Product Name not found: {e}")  # Print error if product name is not found
+            print(f"Error extracting product name: {e}")
 
-        # Get the currently active metal color
-        metal_colors_locator = product_locator.locator(".metal_color .metal_box")
+        # Extract active metal color (normalize to white/rose/yellow)
         active_metal_color = None
         try:
-            # Look for the div that contains the class 'active' (which represents the selected metal color)
-            metal_colors = metal_colors_locator.all()
-            for metal_locator in metal_colors:
-                if metal_locator.is_visible() and 'active' in metal_locator.get_attribute('class'):
-                    active_metal_color = metal_locator.get_attribute('class').split()
-                    active_metal_color = [color for color in active_metal_color if color != "metal_box" and color != "active"]
-                    active_metal_color = active_metal_color[0] if active_metal_color else None
-                    print(f"Active Metal Color: {active_metal_color}")  # Print the active metal color
-                    break  # Once we find the active metal color, exit the loop
-            if not active_metal_color:
-                print("No active metal color found.")
+            for metal in product_locator.locator(".metal_color .metal_box").all():
+                if 'active' in metal.get_attribute('class'):
+                    match = re.search(r'(white|rose|yellow)', metal.get_attribute('class'), re.IGNORECASE)
+                    active_metal_color = match.group(0).lower() if match else None
+                    break
+            print(f"Active Metal Color: {active_metal_color}")
         except Exception as e:
             active_metal_color = "Not found"
-            print(f"Error finding metal colors: {e}")
+            print(f"Error extracting metal color: {e}")
 
         return {
             "price": price,
@@ -77,7 +62,7 @@ class CYOSettingPLPPage:
         }
 
     def click_product(self):
-        """Click on the second product (navigate to the product details page)."""
-        product_locator = self.page.locator("(//div[contains(@class, 'product_box')])[2]//a")  # This is the 2nd product
+        """Click on the second product to go to the details page."""
+        product_locator = self.page.locator("(//div[@class='product_box'])[2]//a")
         product_locator.click()
-        time.sleep(2)  # Wait for navigation
+        time.sleep(2)

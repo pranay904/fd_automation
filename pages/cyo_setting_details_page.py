@@ -1,51 +1,44 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 import time
+import re
 
 class CYOSettingDetailsPage:
     def __init__(self, page: Page):
         self.page = page
 
-    def verify_product_details(self, expected_details: dict):
-        """Verify the product details on the setting details page."""
-
-        # Extract the price from the details page
-        price = self.page.locator("h4").inner_text().strip()
-        print(f"Extracted Price: {price}")  # Print extracted price
-        expect(price).to_be(expected_details["price"], f"Price does not match! Expected: {expected_details['price']}, Found: {price}")
-
-        # Extract the MRP (strikethrough price) from the details page
-        mrp = self.page.locator("h4 .plp_mrp_box").inner_text().strip()
-        print(f"Extracted MRP: {mrp}")  # Print extracted MRP
-        expect(mrp).to_be(expected_details["mrp"], f"MRP does not match! Expected: {expected_details['mrp']}, Found: {mrp}")
-
-        # Extract the product name from the details page (h3)
-        product_name = self.page.locator("h3").inner_text().strip()
-        print(f"Extracted Product Name: {product_name}")  # Print extracted product name
-        expect(product_name).to_be(expected_details["product_name"], f"Product name does not match! Expected: {expected_details['product_name']}, Found: {product_name}")
-
-        # Extract the active metal color (can vary, but we assume 'active' class marks the selected color)
-        active_metal_color = self.page.locator(".metal_box.active").inner_text().strip()
-        print(f"Extracted Active Metal Color: {active_metal_color}")  # Print extracted active metal color
-        expect(active_metal_color).to_be(expected_details["metal_color"], f"Active metal color does not match! Expected: {expected_details['metal_color']}, Found: {active_metal_color}")
-
     def get_product_details(self):
-        """Extract product details (price, MRP, product name, metal color) from the details page."""
+        """Extract product details from the details page and normalize them."""
 
-        # Extract price
-        price = self.page.locator("h4").inner_text().strip()
-        print(f"Extracted Price: {price}")  # Print extracted price
+        # Price
+        try:
+            price = self.page.locator("h2 span:nth-child(1)").inner_text().strip()
+        except:
+            price = "Not found"
+        print(f"Details Price: {price}")
 
-        # Extract MRP (strikethrough price)
-        mrp = self.page.locator("h4 .plp_mrp_box").inner_text().strip()
-        print(f"Extracted MRP: {mrp}")  # Print extracted MRP
+        # MRP
+        try:
+            mrp = self.page.locator("h2 span:nth-child(2)").inner_text().strip()
+        except:
+            mrp = "Not found"
+        print(f"Details MRP: {mrp}")
 
-        # Extract product name (h3)
-        product_name = self.page.locator("h3").inner_text().strip()
-        print(f"Extracted Product Name: {product_name}")  # Print extracted product name
+        # Product Name (remove "14kt White Gold" prefix)
+        try:
+            full_name = self.page.locator(".font-active.mb-3").inner_text().strip()
+            product_name = re.sub(r'^(14kt|18kt|Platinum)\s+(White|Rose|Yellow)\s+Gold\s+', '', full_name, flags=re.IGNORECASE)
+        except:
+            product_name = "Not found"
+        print(f"Details Product Name: {product_name}")
 
-        # Extract active metal color
-        metal_color = self.page.locator(".metal_box.active").inner_text().strip()
-        print(f"Extracted Active Metal Color: {metal_color}")  # Print extracted active metal color
+        # Metal Color (normalize to white/rose/yellow)
+        try:
+            metal_text = self.page.locator("//div[@class='metal_label']//span[@class='me-2']").inner_text().strip()
+            match = re.search(r'(white|rose|yellow)', metal_text, re.IGNORECASE)
+            metal_color = match.group(0).lower() if match else metal_text.lower()
+        except:
+            metal_color = "Not found"
+        print(f"Details Metal Color: {metal_color}")
 
         return {
             "price": price,
@@ -54,9 +47,17 @@ class CYOSettingDetailsPage:
             "metal_color": metal_color
         }
 
+    def verify_product_details(self, expected_details: dict):
+        """Compare normalized details page values with PLP values."""
+        details = self.get_product_details()
+
+        assert details["price"] == expected_details["price"], f"Price mismatch | PLP: {expected_details['price']} | Details: {details['price']}"
+        assert details["mrp"] == expected_details["mrp"], f"MRP mismatch | PLP: {expected_details['mrp']} | Details: {details['mrp']}"
+        assert details["product_name"] == expected_details["product_name"], f"Product Name mismatch | PLP: {expected_details['product_name']} | Details: {details['product_name']}"
+        assert details["metal_color"] == expected_details["metal_color"], f"Metal Color mismatch | PLP: {expected_details['metal_color']} | Details: {details['metal_color']}"
+
     def select_this_setting(self):
-        """Click on the 'SELECT THIS SETTING' button."""
-        select_button = self.page.locator(':text("SELECT THIS SETTING")')
-        self.page.scroll_into_view(select_button)
+        select_button = self.page.locator("//span[normalize-space()='Select this Setting']")
+        #self.page.scroll_into_view_if_needed(select_button)
         select_button.click()
-        time.sleep(2)  # Wait for navigation, or replace with appropriate wait
+        time.sleep(5)

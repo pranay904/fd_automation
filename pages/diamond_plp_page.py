@@ -1,25 +1,40 @@
-# pages/diamond_plp_page.py
+import time
+
 class DiamondPLPPage:
     def __init__(self, page):
         self.page = page
 
-    def go_to(self):
-        """Navigate to the Diamonds PLP page."""
-        self.page.goto("https://payment.ap-diam.com/loose-diamonds?cyo=ring")
+    def get_diamond_details(self):
+        # Wait for the main diamond block
+        diamond_locator = self.page.locator(
+            "(//div[@class='diam_block col-lg-3 col-md-4 col-6'])[2]"
+        )
+        diamond_locator.wait_for(state="visible", timeout=10000)
+        print("Diamond block is visible.")
 
-    def get_diamond_details(self, diamond_index=0):
-        """Get details for the selected diamond."""
-        diamond_locator = self.page.locator(f"(//div[contains(@class, 'diam_block')])[{diamond_index + 1}]")
+        # Title
+        title_locator = diamond_locator.locator(".diam_details .title")
+        title_locator.wait_for(state="visible", timeout=10000)
+        title = title_locator.inner_text().strip()
+        print("Diamond_Title_PLP:", title)
 
-        # Get title (diamond description)
-        title = diamond_locator.locator(".diam_details .title").inner_text()
+        # 4Cs
+        four_cs_locator = diamond_locator.locator(".four_cs")
+        four_cs_locator.wait_for(state="visible", timeout=10000)
+        four_cs = four_cs_locator.inner_text().strip()
+        print("diam4Cs:", four_cs)
 
-        # Get the 4Cs (color, clarity, cut, certification)
-        four_cs = diamond_locator.locator(".four_cs").inner_text()
+        # Price & MRP
+        price_locator = diamond_locator.locator("h4.mb-0")
+        price_locator.wait_for(state="visible", timeout=10000)
+        price_text = price_locator.inner_text().strip()
+        print("Diamonds Price text PLP:", price_text)
 
-        # Get price and MRP (h4)
-        price = diamond_locator.locator("h4").inner_text()
-        mrp = diamond_locator.locator("h4 .plp_mrp_box").inner_text()
+        parts = price_text.split()
+        price = parts[0] if len(parts) > 0 else "Not found"
+        mrp = parts[1] if len(parts) > 1 else "Not found"
+        print("Diamond_Price PLP:", price)
+        print("Diamonds_MRP PLP:", mrp)
 
         return {
             "title": title,
@@ -27,3 +42,10 @@ class DiamondPLPPage:
             "price": price,
             "mrp": mrp
         }
+
+    def click_product(self):
+        product_locator = self.page.locator(
+            "(//div[@class='diam_block col-lg-3 col-md-4 col-6'])[2]"
+        )
+        product_locator.click()
+        time.sleep(2)
