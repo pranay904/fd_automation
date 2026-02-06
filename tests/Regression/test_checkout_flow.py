@@ -1,78 +1,10 @@
-#
-#
-# import pytest
-# from pages.cyo_setting_details_page import CYOSettingDetailsPage
-# from pages.cyo_setting_plp_page import CYOSettingPLPPage
-#
-# @pytest.fixture(scope="function")
-# def browser(page):
-#     """
-#     Fixture for providing the page object to the test.
-#     """
-#     return page
-#
-# @pytest.fixture(scope="function")
-# def cyo_pages(browser):
-#     """
-#     Fixture to initialize the pages for the CYO settings (PLP and Details page).
-#     """
-#     plp_page = CYOSettingPLPPage(browser)
-#     details_page = CYOSettingDetailsPage(browser)
-#     return {
-#         "plp_page": plp_page,
-#         "details_page": details_page
-#     }
-#
-# def test_product_details_match(cyo_pages):
-#     """
-#     Test to verify that product details from PLP match the details page.
-#     """
-#     plp_page = cyo_pages["plp_page"]
-#     details_page = cyo_pages["details_page"]
-#
-#     # Navigate to the PLP page and extract product details
-#     plp_page.go_to()
-#     plp_product_details = plp_page.get_product_details()
-#
-#     # Click on the product to go to the details page
-#     plp_page.click_product()
-#
-#     # Get product details from the details page
-#     details_product_details = details_page.get_product_details()
-#
-#
-#     # Verify that the details from both pages match
-#     try:
-#         details_page.verify_product_details(plp_product_details)
-#         print("Test Passed: Product details match between PLP and Details page.")
-#     except AssertionError as e:
-#         print(f"Test Failed: {e}")
-#         raise
-#
-# def test_select_product_setting(cyo_pages):
-#     """
-#     Test to verify that the product setting can be selected correctly.
-#     """
-#     plp_page = cyo_pages["plp_page"]
-#     details_page = cyo_pages["details_page"]
-#
-#     # Navigate to the PLP page and click the product
-#     #plp_page.go_to()
-#     #plp_page.click_product()
-#
-#     # Select the product setting from the details page
-#     details_page.select_this_setting()
-#
-#     # Add assertions or checks to confirm the product setting selection
-#     # assert page.url == "expected_url_after_selection"  # Replace with actual expected URL or condition
-#     # print("Test Passed: Successfully selected the product setting.")
 import time
-
 import pytest
 from pages.cyo_setting_plp_page import CYOSettingPLPPage
 from pages.cyo_setting_details_page import CYOSettingDetailsPage
 from pages.diamond_plp_page import DiamondPLPPage
 from pages.diamond_details_page import DiamondDetailsPage
+from pages.cyor_complete_page import CompletePage  # Import the CompletePage
 
 
 @pytest.fixture(scope="function")
@@ -92,7 +24,8 @@ def cyo_pages(browser):
         "setting_plp": CYOSettingPLPPage(browser),
         "setting_details": CYOSettingDetailsPage(browser),
         "diamond_plp": DiamondPLPPage(browser),
-        "diamond_details": DiamondDetailsPage(browser)
+        "diamond_details": DiamondDetailsPage(browser),
+        "complete": CompletePage(browser)  # Adding the CompletePage to the fixture
     }
 
 
@@ -105,6 +38,7 @@ def test_setting_and_diamond_details_match(cyo_pages):
     setting_details = cyo_pages["setting_details"]
     diamond_plp = cyo_pages["diamond_plp"]
     diamond_details = cyo_pages["diamond_details"]
+    complete = cyo_pages["complete"]  # Accessing the Complete page
 
     # -------------------- SETTING PLP --------------------
     setting_plp.go_to()
@@ -138,23 +72,82 @@ def test_setting_and_diamond_details_match(cyo_pages):
         print(f"Diamond validation failed: {e}")
         raise
 
-
-def test_add_diamond_to_ring(cyo_pages):
-    """
-    Test to verify diamond can be added to ring after selecting setting.
-    """
-
-    diamond_details = cyo_pages["diamond_details"]
-
-    # Add diamond to ring
+    # -------------------- COMPLETE PAGE --------------------
+    # After adding diamond to the ring, we verify the Complete page
     diamond_details.add_diamond_to_ring()
-    time.sleep(6)
 
-    # Add assertions or validations if required
-    # assert page.url == "expected_url_after_add"
-    # print("Test Passed: Diamond added to ring successfully.")
+    time.sleep(6)  # Wait for the Complete page to load
 
-
+    # Perform validation for Complete page
+    validate_complete_page(complete, plp_setting_details, plp_diamond_details)
 
 
+def validate_complete_page(complete, plp_setting_details, plp_diamond_details):
+    """
+    Validate all details on the Complete page.
+    """
+    # Verify Stepper
+    try:
+        complete.verify_stepper(plp_setting_details, plp_diamond_details)
+        print("Stepper verification PASSED.")
+    except AssertionError as e:
+        print(f"Stepper verification failed: {e}")
+        raise
 
+    # Verify Heading and Total Price
+    try:
+        total_price, total_mrp = complete.verify_heading_and_total_price(
+            plp_setting_details, plp_diamond_details
+        )
+        print(f"Total price: {total_price}, Total MRP: {total_mrp}")
+    except AssertionError as e:
+        print(f"Heading and Total Price verification failed: {e}")
+        raise
+
+    # Verify Saved Amount
+    try:
+        complete.verify_saved_amount(total_price, total_mrp)
+        print("Saved amount verification PASSED.")
+    except AssertionError as e:
+        print(f"Saved amount verification failed: {e}")
+        raise
+
+    # Verify Setting Summary
+    try:
+        complete.verify_setting_summary(plp_setting_details)
+        print("Setting summary verification PASSED.")
+    except AssertionError as e:
+        print(f"Setting summary verification failed: {e}")
+        raise
+
+    # Verify Diamond Summary
+    try:
+        complete.verify_diamond_summary(plp_diamond_details)
+        print("Diamond summary verification PASSED.")
+    except AssertionError as e:
+        print(f"Diamond summary verification failed: {e}")
+        raise
+
+    # Verify Ring Size Selection
+    try:
+        ring_size = complete.select_ring_size()
+        print(f"Ring size selected: {ring_size}")
+    except AssertionError as e:
+        print(f"Ring size verification failed: {e}")
+        raise
+
+    # Verify Shipment Date
+    try:
+        shipment = complete.get_estimated_shipment()
+        print(f"Estimated shipment date: {shipment}")
+    except AssertionError as e:
+        print(f"Shipment date verification failed: {e}")
+        raise
+
+    # Optionally, Add to Bag
+    try:
+        complete.add_to_bag()
+        print("Diamond added to bag successfully.")
+    except AssertionError as e:
+        print(f"Add to Bag verification failed: {e}")
+        raise

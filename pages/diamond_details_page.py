@@ -78,3 +78,5 @@ class DiamondDetailsPage(BasePage):
         print("Clicking 'Add Diamond to Ring' button...")
         add_button.click()
         time.sleep(10)
+
+
