@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aaa347c3-eb55-4b97-88e4-7a4cd91d0934" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Programs/Python/Python314/Lib/site-packages/utils/__init__.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="37sPXRiYyE8yq74ha3P8FKTpiLG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_checkout_flow.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_product_details_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters_with_pdp.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_contact_us.test_contact_us_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_drop_hint.test_drop_hint.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.demo.test_run.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_home_page.test_home_page.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_login.test_login_user_Used_Credentails.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset.test_presetFilter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset.test_preset_filter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.TestPresetFilters.test_apply_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.test_apply_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.test_preset_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_close_popup_if_present.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_login_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_register_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_checkout_flow.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_register.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.register.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;shop__checkout__test&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL/python_automation/Fd_Functional_Tets/test_data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\test_data" />
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\test_data\media" />
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\tests\Regression" />
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests in test_checkout_flow.py">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_checkout_flow" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_checkout_flow&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_product_details_match" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_product_details_match&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_setting_details_select_this_setting&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Regression.test_preset_all_filters.test_preset_filters" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Regression.test_preset_all_filters.test_preset_filters&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_home_page.test_home_page" type="tests" factoryName="Autodetect" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;--headed&quot;" />
+      <option name="_new_target" value="&quot;tests.test_home_page.test_home_page&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_checkout_flow.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/Regression/test_checkout_flow.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_register.py" type="tests" factoryName="Autodetect" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;--headed&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_register.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests in test_checkout_flow.py" />
+        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_product_details_match" />
+        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting" />
+        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_checkout_flow" />
+        <item itemvalue="Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aaa347c3-eb55-4b97-88e4-7a4cd91d0934" name="Changes" comment="" />
+      <created>1767688844956</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767688844956</updated>
+      <workItem from="1767688846093" duration="28575000" />
+      <workItem from="1768285735131" duration="28460000" />
+      <workItem from="1768459147792" duration="722000" />
+      <workItem from="1768553436748" duration="14601000" />
+      <workItem from="1768799757671" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_preset.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/login_page.py</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/register_page.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_login.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_preset_filters.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/all_preset_page.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_preset_filters.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_preset_filters.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/Regression/test_preset_all_filters.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Fd_Functional_Tets$.coverage" NAME=" Coverage Results" MODIFIED="1768568588013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Fd_Functional_Tets$register.coverage" NAME="register Coverage Results" MODIFIED="1767693840257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pages" />
+  </component>
+</project>

@@ -2,8 +2,7 @@ LOG - --------------------------------------- false
 ERROR - Failed to load resource: the server responded with a status of 401 ()
 VERBOSE - [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o
 LOG - {success: true, data: Array(2), message: }
-ERROR - Executing inline script violates the following Content Security Policy directive 'script-src 'self' https://maps.google.com https://accounts.google.com    'sha256-9uFLu5CG8mWlvx0LK6lgendCxUX57TuWk3wkgZpBeWU=' 'sha256-isH538cVBUY8IMlGYGbWtBwr+cGqkc4mN6nLcA7lUjE=' 'sha256-3N2Z+Nu++/yNMVHIl863JigVmt2Nr9gt2doEMJT2Wzk=''. Either the 'unsafe-inline' keyword, a hash ('sha256-hzAuTK0cHHy7rZ7mYanNuv+wcfBhQKMTmjLZbCLh14s='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
-ERROR - Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-afzWgMmhT4'   https://accounts.google.com'. Either the 'unsafe-inline' keyword, a hash ('sha256-bgUp5tqDCSC1xokY+fdYcHMM/Fap5RX+TCFkA0sXuRk='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+ERROR - Executing inline script violates the following Content Security Policy directive 'script-src 'self' https://maps.google.com https://accounts.google.com    'sha256-9uFLu5CG8mWlvx0LK6lgendCxUX57TuWk3wkgZpBeWU=' 'sha256-isH538cVBUY8IMlGYGbWtBwr+cGqkc4mN6nLcA7lUjE=' 'sha256-3N2Z+Nu++/yNMVHIl863JigVmt2Nr9gt2doEMJT2Wzk=''. Either the 'unsafe-inline' keyword, a hash ('sha256-/CGqVGkl/1zjltvN2LfnAeBBqoqpOSqactm5NWlVeM8='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
 LOG - --------------------------------------- false
 LOG - {success: true, data: Array(2), message: }
 LOG - {text: Bermuda, value: BM, regions: Array(11)} countryList-US

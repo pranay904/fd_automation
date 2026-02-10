@@ -1,12 +1,12 @@
-# utils/highlight_helpers.py
-
+# ---------------------------
+# Global click/hover highlight for all elements
+# ---------------------------
 def enable_click_highlight(page):
     """
-    Highlights every element automatically on click.
-    Duration: 0.8 seconds (800 ms)
+    Automatically highlights every clicked element with red outline.
+    Optional: hover highlight in orange.
     """
     page.add_init_script("""
-        // Highlight every clicked element
         document.addEventListener('click', event => {
             const el = event.target;
             const originalOutline = el.style.outline;
@@ -17,7 +17,6 @@ def enable_click_highlight(page):
             }, 800);
         }, true);
 
-        // Optional: highlight hovered elements
         document.addEventListener('mouseover', event => {
             const el = event.target;
             el.style.transition = 'outline 0.2s ease-in-out';
@@ -29,3 +28,22 @@ def enable_click_highlight(page):
             el.style.outline = '';
         }, true);
     """)
+
+# ---------------------------
+# Manual highlight for specific elements
+# ---------------------------
+from playwright.sync_api import Locator
+
+def highlight_element(locator: Locator, duration=800):
+    """
+    Highlights a specific locator element for a duration (ms).
+    Useful for inputs or buttons.
+    """
+    locator.evaluate("""
+        (el, duration) => {
+            const original = el.style.outline;
+            el.style.outline = '3px solid orange';
+            el.style.outlineOffset = '2px';
+            setTimeout(() => { el.style.outline = original; }, duration);
+        }
+    """, duration)
