@@ -25,9 +25,9 @@
 #     for order_id in order_ids:
 #         print(f"Searching Order ID: {order_id}")
 #         order_page.search_order(order_id)
-from pages.login_page import LoginPage
-from pages.order_page import OrderPage
-from utils.json_reader import get_login_user
+from OMS.pages.login_page import LoginPage
+from OMS.pages.order_page import OrderPage
+from OMS.utils.json_reader import get_login_user
 import time
 
 def test_login_and_search_orders(page):

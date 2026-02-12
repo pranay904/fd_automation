@@ -1,33 +1,54 @@
 
-
-class base_pos:
+class BasePOS:
     def __init__(self, page):
         self.page = page
+
 
 
     def open_pos(self):
         self.page.locator(".v-navigation-drawer__content").hover()
         self.page.locator("//div[@class='v-list-item-title'][normalize-space()='Order Lines']").click()
-        self.page.locator("(//div[contains(text(),'All Order Lines')])[1]").click()
-        self.page.locator("(//span[@class='v-expansion-panel-title__overlay'])[1]").click()
+        self.page.locator("(//div[contains(text(),'POS')])[1]").click()
+       # self.page.locator("(//span[@class='v-expansion-panel-title__overlay'])[1]").click()
 
 
     def store_list(self):
 
         Ny_store = self.page.locator("(//div[@class='v-card-item'])[1]")
-        Ny_store.click()
-
         Amzazon_store = self.page.locator("(//div[@class='v-card-item'])[2]")
-        Amzazon_store.click()
-
         Etsy_store = self.page.locator("(//div[@class='v-card-item'])[3]")
-        Etsy_store.click()
-
-        Etsy_store = self.page.locator("(//div[@class='v-card-item'])[4]")
-        Etsy_store.click()
-
+        Ebay_store = self.page.locator("(//div[@class='v-card-item'])[4]")
         Walmart_store = self.page.locator("(//div[@class='v-card-item'])[5]")
-        Walmart_store.click()
+        return {
+            "Ny_store":Ny_store,
+            "Amzazon_store":Amzazon_store,
+            "Etsy_store":Etsy_store,
+            "Ebay_store":Ebay_store,
+            "Walmart_store":Walmart_store
+        }
+
+    def product_type(self):
+
+        return{
+        "In_Stock":self.page.get_by_role("button", name="In Stock"),
+        "Cyo":self.page.get_by_role("button", name="Cyo"),
+        "Cyo_Ring": self.page.get_by_role("button", name="Ring", exact=True),
+        "Cyo_Pendant":self.page.get_by_role("button", name="PENDANT"),
+        "Cyo_Earring":self.page.get_by_role("button", name="EARRING"),
+        "Diamond":self.page.get_by_role("button", name="DIAMOND"),
+        "Preset":self.page.get_by_role("button", name="PRESET"),
+        "Jewelry":self.page.get_by_role("button", name="JEWELRY")
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 

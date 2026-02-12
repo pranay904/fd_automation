@@ -1,0 +1,28 @@
+LOG - --------------------------------------- false
+ERROR - Failed to load resource: the server responded with a status of 401 (Unauthorized)
+VERBOSE - [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o
+LOG - {success: true, data: Array(2), message: }
+INFO - Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-9uFLu5CG8mWlvx0LK6lgendCxUX57TuWk3wkgZpBeWU='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-3N2Z+Nu++/yNMVHIl863JigVmt2Nr9gt2doEMJT2Wzk='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Loading the script 'https://analytics.orders-fdoms.com/app/dist/runtime.c8bea3d3d59b1a3b.js' violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Loading the script 'https://analytics.orders-fdoms.com/app/dist/vendor-styles.a3886887c1aa4f25.js' violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Loading the script 'https://analytics.orders-fdoms.com/app/dist/styles.24272cca39654a64.js' violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Loading the script 'https://analytics.orders-fdoms.com/app/dist/vendor.648c2f776c64576e.js' violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.
+INFO - Loading the script 'https://analytics.orders-fdoms.com/app/dist/app-embed.e202c611a75360d4.js' violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.
+ERROR - Executing inline script violates the following Content Security Policy directive 'script-src 'self' https://maps.google.com https://accounts.google.com    'sha256-9uFLu5CG8mWlvx0LK6lgendCxUX57TuWk3wkgZpBeWU=' 'sha256-isH538cVBUY8IMlGYGbWtBwr+cGqkc4mN6nLcA7lUjE=' 'sha256-3N2Z+Nu++/yNMVHIl863JigVmt2Nr9gt2doEMJT2Wzk=''. Either the 'unsafe-inline' keyword, a hash ('sha256-Iu9xyCkXg4ihZWFgnR0LCV35CdJBH7RW8GpFcnu/RLM='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+INFO - Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-Iu9xyCkXg4ihZWFgnR0LCV35CdJBH7RW8GpFcnu/RLM='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.
+ERROR - Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-12LKGqNPlx'   https://accounts.google.com'. Either the 'unsafe-inline' keyword, a hash ('sha256-bgUp5tqDCSC1xokY+fdYcHMM/Fap5RX+TCFkA0sXuRk='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+LOG - --------------------------------------- false
+LOG - {success: true, data: Array(2), message: }
+LOG - --------------------------------------- false
+LOG - {success: true, data: Array(2), message: }
+LOG - callFromCart false 0 null
+ERROR - [getDropdownOptions] Failed to load "sub_type" options: Error: Unsupported dropdown type: sub_type
+    at ue (https://frontendoms.ap-diam.com/_nuxt/Bzt-hFzy.js:1:52084)
+    at $ (https://frontendoms.ap-diam.com/_nuxt/Bzt-hFzy.js:1:52485)
+LOG - setting_id 627 cyo
+LOG - subType undefined undefined
+LOG - size 3 undefined
+LOG - diamond_id 739010 undefined
+LOG - cartStatus undefined
+LOG - callFromCart false 1 null

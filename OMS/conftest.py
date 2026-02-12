@@ -3,7 +3,6 @@ import datetime
 import pytest
 from pytest_html import extras
 from playwright.sync_api import sync_playwright
-
 from utils.highlight_helpers import enable_click_highlight
 
 # Base folder
@@ -37,7 +36,7 @@ def page(request):
             args=["--start-maximized"]
         )
 
-        # Full HD browser context with video
+        # Full screen browser context with video
         context = browser.new_context(
             viewport={"width": 1920, "height": 1080},
             record_video_dir=DIRS["videos"],

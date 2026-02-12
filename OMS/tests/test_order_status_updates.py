@@ -1,15 +1,15 @@
 import pytest
 
-from pages.login_page import LoginPage
-from pages.order_status_update.CancelledRefundedStatus import CancelledRefundedStatus
-from pages.order_status_update.ReturnAndRefundedStatus import ReturnAndRefundedStatus
-from pages.order_status_update.ReturnRequestedStatus import ReturnRequestedStatus
-from pages.order_status_update.ReturnStatus import ReturnStatus
-from pages.order_status_update.cancelled_status import CancelledStatus
-from pages.order_status_update.delivered_status import DeliveredStatus
-from pages.order_status_update.orderstatusbase import OrderStatusBase
-from pages.order_status_update.shipped_status import ShippedStatus
-from utils.json_reader import get_login_user
+from OMS.pages.login_page import LoginPage
+from OMS.pages.order_status_update.CancelledRefundedStatus import CancelledRefundedStatus
+from OMS.pages.order_status_update.ReturnAndRefundedStatus import ReturnAndRefundedStatus
+from OMS.pages.order_status_update.ReturnRequestedStatus import ReturnRequestedStatus
+from OMS.pages.order_status_update.ReturnStatus import ReturnStatus
+from OMS.pages.order_status_update.cancelled_status import CancelledStatus
+from OMS.pages.order_status_update.delivered_status import DeliveredStatus
+from OMS.pages.order_status_update.orderstatusbase import OrderStatusBase
+from OMS.pages.order_status_update.shipped_status import ShippedStatus
+from OMS.utils.json_reader import get_login_user
 
 
 # -------------------------------
@@ -23,7 +23,7 @@ def login(page):
 
 # -------------------------------
 # Base order navigation
-# -------------------------------
+
 def open_order_status_update(page):
     order_status = OrderStatusBase(page)
     order_status.open_order_and_all_order_line()
