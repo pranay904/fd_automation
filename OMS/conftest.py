@@ -51,11 +51,11 @@ def page(request):
 
         page = context.new_page()
 
-        # ✅ Enable highlight
+        #  Enable highlight
         enable_click_highlight(page)
 
         # --------------------------------------------------
-        # ✅ GLOBAL 2 SECOND DELAY + WAIT FOR VISIBLE & CLICKABLE
+        #  GLOBAL 2 SECOND DELAY + WAIT FOR VISIBLE & CLICKABLE
         # --------------------------------------------------
         original_click = page.click
 

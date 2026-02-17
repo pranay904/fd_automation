@@ -1,6 +1,6 @@
 import time
 
-from pages.POS.base_pos import BasePOS
+from OMS.pages.POS.base_pos import BasePOS
 
 class CreateCYOOrderPOS:
     def __init__(self, page):
