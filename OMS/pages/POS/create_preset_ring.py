@@ -8,9 +8,7 @@ class CreatePresetRingOrderPOS:
         self.slug = None
         self.global_delay = 1500  # 1.5 seconds
 
-    # ---------------------------
     # Utility Methods
-    # ---------------------------
 
     def wait_delay(self, page=None):
         if page:
@@ -33,21 +31,26 @@ class CreatePresetRingOrderPOS:
         locator.click()
         self.wait_delay(page)
 
-    # ---------------------------
-    # Main Methods
-    # ---------------------------
+    # NEW: Highlight + Fill (so search box also highlights)
+    def fill_with_effect(self, locator, value, page=None):
+        locator.wait_for(state="visible")
+        self.highlight(locator)
+        locator.fill(value)
+        self.wait_delay(page)
 
-    def select_store_list(self):
+    # Main Methods
+
+    def select_store_list(self, page=None):
         stores = self.base_pos.store_list()
         store = stores["Ny_store"]
-
         self.click_with_effect(store)
+        self.wait_delay(page)
 
-    def select_product_type(self):
+    def select_product_type(self, page=None):
         product_type = self.base_pos.product_type()
-
         self.click_with_effect(product_type["Preset"])
         self.click_with_effect(product_type["Cyo_Ring"])
+        self.wait_delay(page)
 
     def take_product_slug(self):
 
@@ -64,11 +67,8 @@ class CreatePresetRingOrderPOS:
 
         # Step 2: Click product
         product = preset_tab.locator("(//div[@class='mob_mod'])[2]").first
-        product.wait_for(state="visible")
-        self.highlight(product)
-        product.click()
+        self.click_with_effect(product, preset_tab)
         preset_tab.wait_for_load_state("domcontentloaded")
-        self.wait_delay(preset_tab)
 
         # Step 3: Highlight whole page before copying slug
         preset_tab.evaluate("""
@@ -83,33 +83,20 @@ class CreatePresetRingOrderPOS:
         self.slug = full_url.split("/")[-1]
         print("Captured Slug:", self.slug)
 
-        # Remove highlight
-        preset_tab.evaluate("document.body.style.border = '';")
-
         # Step 5: Close tab and return
         preset_tab.close()
         self.page.bring_to_front()
         self.wait_delay()
 
     def search_product_slug(self):
+        search_slug = self.page.get_by_role("textbox", name="Search Slug")
 
-        # Locate wrapper div
-        search_wrapper = self.page.locator(
-            "div.v-field.v-field--center-affix.v-field--no-label.v-field--variant-outlined.v-theme--light.v-locale--is-ltr"
-        ).nth(1)  # use nth if multiple exist
+        # Highlight + Fill
+        self.fill_with_effect(search_slug, self.slug)
 
-        search_wrapper.wait_for(state="visible")
-        self.highlight(search_wrapper)
-
-        # Now locate input inside it
-        search_input = search_wrapper.locator("input")
-
-        search_input.wait_for(state="visible")
-        self.highlight(search_input)
-
-        # Paste slug (if using keyboard copy method)
-        search_input.click()
-        self.page.keyboard.press("Control+V")
-
+        # FIX: specify which Submit button
+        submit = self.page.locator("button[class='v-btn v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-x-large v-btn--variant-flat']")
+        self.click_with_effect(submit)
         self.wait_delay()
+
 

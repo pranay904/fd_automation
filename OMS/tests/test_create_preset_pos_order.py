@@ -1,4 +1,6 @@
 from OMS.pages.POS.base_pos import BasePOS
+from OMS.pages.POS.create_preset_Earring import CreatePresetEarringOrderPOS
+from OMS.pages.POS.create_preset_pendant import CreatePresetPendantOrderPOS
 from OMS.pages.POS.create_preset_ring import CreatePresetRingOrderPOS
 from OMS.pages.login_page import LoginPage
 from OMS.utils.json_reader import get_login_user
@@ -27,14 +29,32 @@ class TestCreatePresetOrder:
         base_pos = BasePOS(page)
         base_pos.open_pos()
 
-    # ---------------------------------------------------------
     # Test CYO Ring
-    # ---------------------------------------------------------
     def test_create_preset_ring(self, page):
 
         self._login_and_open_pos(page)
 
         order = CreatePresetRingOrderPOS(page)
+
+        order.select_store_list()
+        order.select_product_type()
+        order.take_product_slug()
+        order.search_product_slug()
+
+    def test_create_preset_pendant(self, page):
+        self._login_and_open_pos(page)
+
+        order = CreatePresetPendantOrderPOS(page)
+
+        order.select_store_list()
+        order.select_product_type()
+        order.take_product_slug()
+        order.search_product_slug()
+
+    def test_create_preset_earring(self, page):
+        self._login_and_open_pos(page)
+
+        order = CreatePresetEarringOrderPOS(page)
 
         order.select_store_list()
         order.select_product_type()
