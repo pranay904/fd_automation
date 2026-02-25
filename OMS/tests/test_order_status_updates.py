@@ -90,3 +90,50 @@ def test_return_staus(page):
     open_order_status_update(page)
     status = ReturnStatus(page)
     status.select()
+<<<<<<< Updated upstream
+=======
+
+
+def test_add_diamond_line(page):
+
+    login(page)
+    time.sleep(1)
+
+    update = AddDiamondLines(page)
+    update.open_all_order_line()
+
+    update.add_diamond_line()
+
+
+def test_update_product_size(page):
+
+    login(page)
+
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    edit_product.edit_product_form()
+    edit_product.update_size()
+    edit_product.handle_size_modal()
+
+
+def test_update_product_mount(page):
+
+    login(page)
+
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    edit_product.edit_product_form()
+    edit_product.update_mount()
+    edit_product.update_product_details()
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
