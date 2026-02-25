@@ -2,7 +2,10 @@ from openpyxl import load_workbook
 
 
 def read_excel(file_path, sheet_name):
-    wb = load_workbook(file_path)
+    """
+    Reads Excel file and returns list of dictionaries
+    """
+    wb = load_workbook(filename=file_path)
     sheet = wb[sheet_name]
 
     headers = [cell.value for cell in sheet[1]]
@@ -12,4 +15,5 @@ def read_excel(file_path, sheet_name):
         row_dict = dict(zip(headers, row))
         data.append(row_dict)
 
+    wb.close()
     return data

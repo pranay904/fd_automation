@@ -29,5 +29,10 @@ BESPOKE_JEWELRY_URL = "https://friendlydiamonds.com/customized-jewelry"
 # =========================================================
 # TEST DATA PATHS
 # =========================================================
-DATA_DIR = os.path.join("test_data")  # <-- updated folder name
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Test data directory inside FD
+DATA_DIR = os.path.join(BASE_DIR, "test_data")
+
+# Excel file path
 PRESET_FILTER_EXCEL = os.path.join(DATA_DIR, "preset_filter_testcases.xlsx")

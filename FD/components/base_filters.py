@@ -1,7 +1,9 @@
+
 import re
-from playwright.sync_api import TimeoutError
+
 
 class BaseFilters:
+
     def __init__(self, page):
         self.page = page
 
@@ -23,86 +25,216 @@ class BaseFilters:
         "//div[contains(@class,'tag_box')]/span[1]"
     )
 
-    # ---------------- NORMALIZERS ----------------
-    def normalize_metal(self, text):
+    # =====================================================
+    #              GENERIC NORMALIZER (FOR ALL)
+    # =====================================================
+
+    def normalize_value(self, filter_type, text):
+
         if not text:
             return ""
 
-        text = text.lower()
+        text = text.lower().strip()
 
-        # PT metals
-        if "pt" in text:
-            if "950" in text:
-                return "PT 950"
-            if "600" in text:
-                return "PT 600"
-            return "PT"
+        # -------- METAL --------
+        if filter_type == "metal":
 
-        # Gold metals
-        karat_match = re.search(r'(10|14|18)\s*(k|kt)', text)
-        karat = karat_match.group(1) if karat_match else ""
+            if "platinum" in text or text.startswith("pt"):
+                return "platinum"
 
-        if "white" in text:
-            color = "White"
-        elif "yellow" in text:
-            color = "Yellow"
-        elif "rose" in text:
-            color = "Rose"
-        else:
-            color = ""
+            karat_match = re.search(r'(10|14|18)\s*(k|kt)', text)
+            karat = karat_match.group(1) if karat_match else ""
 
-        if karat and color:
-            return f"{karat}Kt {color} Gold"
+            if "white" in text:
+                color = "white"
+            elif "yellow" in text:
+                color = "yellow"
+            elif "rose" in text:
+                color = "rose"
+            else:
+                color = ""
 
-        return text.strip()
+            if karat and color:
+                return f"{karat}kt {color} gold"
 
-    def normalize_text(self, text):
-        return text.strip().lower() if text else ""
+        # -------- OTHERS (shape, style, carat) --------
+        return text
 
-    def normalize_price(self, text):
-        return text.replace(",", "").strip().lower()
+    # =====================================================
+    #                APPLY FILTER (COMMON)
+    # =====================================================
 
-    # ---------------- APPLY FILTER ----------------
     def apply_filter(self, dropdown, items, filter_type, expected_value):
+
         if not expected_value:
+            print(f"{filter_type} skipped (NULL in test case)")
             return None
 
         self.page.locator(dropdown).click()
+
         options = self.page.locator(items)
         options.first.wait_for(state="visible", timeout=5000)
 
+        expected_norm = self.normalize_value(filter_type, expected_value)
+
         for i in range(options.count()):
-            text = options.nth(i).text_content().strip()
 
-            if filter_type == "metal":
-                if self.normalize_metal(expected_value) == self.normalize_metal(text):
-                    options.nth(i).click()
-                    self.page.wait_for_timeout(3000)
-                    return self.normalize_metal(text)
-            else:
-                if expected_value.lower() in text.lower():
-                    options.nth(i).click()
-                    self.page.wait_for_timeout(3000)
-                    return text.strip()
+            option_text = options.nth(i).text_content().strip()
+            option_norm = self.normalize_value(filter_type, option_text)
 
-        raise AssertionError(f"Filter not found: {expected_value}")
+            if expected_norm == option_norm:
+                options.nth(i).click()
+                self.page.wait_for_timeout(2000)
+                return option_text.strip()
 
-    # ---------------- ASSERT FILTER TAGS ----------------
+        raise AssertionError(f"{filter_type} filter not found: {expected_value}")
+
+    # =====================================================
+    #                ASSERT FILTER TAGS
+    # =====================================================
+
     def assert_filter_tags(self, expected: dict):
+
         tags = self.page.locator(self.FILTER_TAG_VALUE)
         tags.first.wait_for(state="visible", timeout=5000)
 
         applied_tags = tags.all_text_contents()
 
         for filter_type, expected_value in expected.items():
-            if filter_type == "metal":
-                expected_norm = self.normalize_metal(expected_value)
-                actual = [self.normalize_metal(t) for t in applied_tags]
-            else:
-                expected_norm = expected_value.lower()
-                actual = [t.lower() for t in applied_tags]
 
-            if expected_norm not in actual:
-                raise AssertionError(f"Tag mismatch for {filter_type}")
+            if not expected_value:
+                continue
+
+            expected_norm = self.normalize_value(filter_type, expected_value)
+
+            actual_norm = [
+                self.normalize_value(filter_type, t)
+                for t in applied_tags
+            ]
+
+            if expected_norm not in actual_norm:
+                raise AssertionError(
+                    f"Tag mismatch for {filter_type}. "
+                    f"Expected: {expected_norm}, Found: {actual_norm}"
+                )
 
         return True
+
+
+
+
+
+
+
+
+
+
+
+# import re
+# from playwright.sync_api import TimeoutError
+#
+# class BaseFilters:
+#     def __init__(self, page):
+#         self.page = page
+#
+#     # ---------------- DROPDOWNS ----------------
+#     METAL_DROPDOWN = "//div[contains(text(),'metal')]"
+#     SHAPE_DROPDOWN = "//div[contains(text(),'shape')]"
+#     STYLE_DROPDOWN = "//div[contains(text(),'style')]"
+#     CARAT_DROPDOWN = "//div[contains(text(),'carat')]"
+#
+#     # ---------------- ITEMS ----------------
+#     METAL_ITEMS = "//div[@class='drop_item_metal drop_item']//ul/li"
+#     SHAPE_ITEMS = "//div[@class='drop_item_shape drop_item']//ul/li"
+#     STYLE_ITEMS = "//div[@class='drop_item_style drop_item']//ul/li"
+#     CARAT_ITEMS = "//div[@class='drop_item_carat drop_item']//ul/li"
+#
+#     # ---------------- FILTER TAG ----------------
+#     FILTER_TAG_VALUE = (
+#         "//div[contains(@class,'filter_tags')]"
+#         "//div[contains(@class,'tag_box')]/span[1]"
+#     )
+#
+#     # ---------------- NORMALIZERS ----------------
+#     def normalize_metal(self, text):
+#         if not text:
+#             return ""
+#
+#         text = text.lower()
+#
+#         # PT metals
+#         if "pt" in text:
+#             if "950" in text:
+#                 return "PT 950"
+#             if "600" in text:
+#                 return "PT 600"
+#             return "PT"
+#
+#         # Gold metals
+#         karat_match = re.search(r'(10|14|18)\s*(k|kt)', text)
+#         karat = karat_match.group(1) if karat_match else ""
+#
+#         if "white" in text:
+#             color = "White"
+#         elif "yellow" in text:
+#             color = "Yellow"
+#         elif "rose" in text:
+#             color = "Rose"
+#         else:
+#             color = ""
+#
+#         if karat and color:
+#             return f"{karat}Kt {color} Gold"
+#
+#         return text.strip()
+#
+#     def normalize_text(self, text):
+#         return text.strip().lower() if text else ""
+#
+#     def normalize_price(self, text):
+#         return text.replace(",", "").strip().lower()
+#
+#     # ---------------- APPLY FILTER ----------------
+#     def apply_filter(self, dropdown, items, filter_type, expected_value):
+#         if not expected_value:
+#             return None
+#
+#         self.page.locator(dropdown).click()
+#         options = self.page.locator(items)
+#         options.first.wait_for(state="visible", timeout=5000)
+#
+#         for i in range(options.count()):
+#             text = options.nth(i).text_content().strip()
+#
+#             if filter_type == "metal":
+#                 if self.normalize_metal(expected_value) == self.normalize_metal(text):
+#                     options.nth(i).click()
+#                     self.page.wait_for_timeout(3000)
+#                     return self.normalize_metal(text)
+#             else:
+#                 if expected_value.lower() in text.lower():
+#                     options.nth(i).click()
+#                     self.page.wait_for_timeout(3000)
+#                     return text.strip()
+#
+#         raise AssertionError(f"Filter not found: {expected_value}")
+#
+#     # ---------------- ASSERT FILTER TAGS ----------------
+#     def assert_filter_tags(self, expected: dict):
+#         tags = self.page.locator(self.FILTER_TAG_VALUE)
+#         tags.first.wait_for(state="visible", timeout=5000)
+#
+#         applied_tags = tags.all_text_contents()
+#
+#         for filter_type, expected_value in expected.items():
+#             if filter_type == "metal":
+#                 expected_norm = self.normalize_metal(expected_value)
+#                 actual = [self.normalize_metal(t) for t in applied_tags]
+#             else:
+#                 expected_norm = expected_value.lower()
+#                 actual = [t.lower() for t in applied_tags]
+#
+#             if expected_norm not in actual:
+#                 raise AssertionError(f"Tag mismatch for {filter_type}")
+#
+#         return True

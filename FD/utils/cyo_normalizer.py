@@ -1,5 +1,5 @@
 import re
-from utils.cyo_contract import CYOContract
+from FD.utils.cyo_contract import CYOContract
 
 class CYONormalizer:
 

@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from OMS.pages.login_page import LoginPage
@@ -7,6 +9,7 @@ from OMS.pages.order_status_update.ReturnRequestedStatus import ReturnRequestedS
 from OMS.pages.order_status_update.ReturnStatus import ReturnStatus
 from OMS.pages.order_status_update.cancelled_status import CancelledStatus
 from OMS.pages.order_status_update.delivered_status import DeliveredStatus
+from OMS.pages.order_status_update.edit_product import EditProduct
 from OMS.pages.order_status_update.orderstatusbase import OrderStatusBase
 from OMS.pages.order_status_update.shipped_status import ShippedStatus
 from OMS.utils.json_reader import get_login_user
@@ -90,8 +93,6 @@ def test_return_staus(page):
     open_order_status_update(page)
     status = ReturnStatus(page)
     status.select()
-<<<<<<< Updated upstream
-=======
 
 
 def test_add_diamond_line(page):
@@ -136,4 +137,4 @@ def test_update_product_mount(page):
 
 
 
->>>>>>> Stashed changes
+

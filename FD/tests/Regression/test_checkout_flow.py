@@ -1,10 +1,10 @@
 import time
 import pytest
-from pages.cyo_setting_plp_page import CYOSettingPLPPage
-from pages.cyo_setting_details_page import CYOSettingDetailsPage
-from pages.diamond_plp_page import DiamondPLPPage
-from pages.diamond_details_page import DiamondDetailsPage
-from pages.cyor_complete_page import CompletePage  # Import the CompletePage
+from FD.pages.cyo_setting_plp_page import CYOSettingPLPPage
+from FD.pages.cyo_setting_details_page import CYOSettingDetailsPage
+from FD.pages.diamond_plp_page import DiamondPLPPage
+from FD.pages.diamond_details_page import DiamondDetailsPage
+from FD.pages.cyor_complete_page import CompletePage  # Import the CompletePage
 
 
 @pytest.fixture(scope="function")
