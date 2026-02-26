@@ -4,7 +4,7 @@ import pytest
 from pytest_html import extras
 from playwright.sync_api import sync_playwright
 
-from utils.highlight_helpers import enable_click_highlight
+from OMS.utils.highlight_helpers import enable_click_highlight
 
 # ---------------------------
 # Base folder

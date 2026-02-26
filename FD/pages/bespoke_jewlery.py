@@ -1,5 +1,5 @@
-from components.base_form_page import BaseFormPage
-from utils.config import BESPOKE_JEWELRY_URL
+from FD.components.base_form_page import BaseFormPage
+from FD.utils.config import BESPOKE_JEWELRY_URL
 
 class Bespoke_Jewlery(BaseFormPage):
 

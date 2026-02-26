@@ -1,8 +1,8 @@
 import time
 
-from pages.bespoke_jewlery import Bespoke_Jewlery
-from utils.yaml_loader import load_yaml
-from test_data import media
+from FD.pages.bespoke_jewlery import Bespoke_Jewlery
+from FD.utils.yaml_loader import load_yaml
+from FD.test_data import media
 
 def test_bespoke_form(page):
 

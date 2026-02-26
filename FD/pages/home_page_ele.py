@@ -1,8 +1,8 @@
 import time
 
-from utils.config import BASE_URL
-from utils.email_generator import generate_email
-from pages import register_page
+from FD.utils.config import BASE_URL
+from FD.utils.email_generator import generate_email
+from FD.pages import register_page
 
 class Guest:
     def __init__(self, page ):

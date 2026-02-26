@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 
-from components.base_form_page import BaseFormPage
-from utils.config import CYO_R_URL
+from FD.components.base_form_page import BaseFormPage
+from FD.utils.config import CYO_R_URL
 
 
 class Gemologist(BaseFormPage):

@@ -2,9 +2,9 @@ import time
 
 from playwright.sync_api import expect
 
-from utils.email_generator import generate_email
-from utils.json_reader import read_json_file, file_path
-from utils.config import REGISTER_URL, LOGIN_URL
+from FD.utils.email_generator import generate_email
+from  FD.utils.json_reader import read_json_file, file_path
+from FD.utils.config import REGISTER_URL, LOGIN_URL
 
 class RegisterPage:
     def __init__(self, page):

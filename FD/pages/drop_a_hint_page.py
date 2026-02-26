@@ -1,5 +1,5 @@
-from components.base_form_page import BaseFormPage
-from utils.config import BASE_URL, CYO_R_URL
+from FD.components.base_form_page import BaseFormPage
+from FD.utils.config import BASE_URL, CYO_R_URL
 from playwright.sync_api import expect
 
 class DropHint(BaseFormPage):
