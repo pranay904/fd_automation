@@ -1,6 +1,6 @@
-from utils.yaml_loader import load_yaml
+from FD.utils.yaml_loader import load_yaml
 
-from pages.Gemologist_page import Gemologist
+from FD.pages.forms.Gemologist_page import Gemologist
 
 def test_gemologist(page):
 

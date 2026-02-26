@@ -10,7 +10,7 @@ class Gemologist(BaseFormPage):
         super().__init__(page)
 
 
-    def naviagate_to_gemo(self):
+    def navigate_to_gemo(self):
 
         self.page.goto(CYO_R_URL)
 

@@ -10,7 +10,7 @@ class DropHint(BaseFormPage):
     def open_Base_url(self):
         self.page.goto(BASE_URL)
 
-    def naviagate_to_pdp(self):
+    def navigate_to_pdp(self):
 
         self.page.goto(CYO_R_URL)
 
