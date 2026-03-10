@@ -125,6 +125,9 @@ def test_update_product_size(page):
 
     edit_product = EditProduct(page)
     edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
     edit_product.edit_product_form()
     edit_product.update_size()
     edit_product.handle_size_modal()
@@ -136,9 +139,39 @@ def test_update_mount_and_other_details(page):
 
     edit_product = EditProduct(page)
     edit_product.open_all_order_line()
+    time.sleep(3)
+    edit_product.preset_product()
+    time.sleep(2)
     edit_product.edit_product_form()
     edit_product.update_mount()
     edit_product.update_product_details()
+
+
+
+def test_add_product_note(page):
+
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+
+    edit_product.add_product_note()
+
+
+def test_update_product_status(page):
+
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_product_status()
+
+
+
 
 
 
