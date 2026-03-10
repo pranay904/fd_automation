@@ -1,4 +1,4 @@
-from components.base_filters import BaseFilters
+from FD.components.base_filters import BaseFilters
 
 
 class PLPFilters(BaseFilters):

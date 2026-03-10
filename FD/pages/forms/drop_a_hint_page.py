@@ -1,5 +1,5 @@
-from components.base_form_page import BaseFormPage
-from utils.config import BASE_URL, CYO_R_URL
+from FD.components.base_form_page import BaseFormPage
+from FD.utils.config import BASE_URL, CYO_R_URL
 from playwright.sync_api import expect
 
 class DropHint(BaseFormPage):
@@ -10,7 +10,7 @@ class DropHint(BaseFormPage):
     def open_Base_url(self):
         self.page.goto(BASE_URL)
 
-    def naviagate_to_pdp(self):
+    def navigate_to_pdp(self):
 
         self.page.goto(CYO_R_URL)
 

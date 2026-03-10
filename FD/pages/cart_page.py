@@ -1,5 +1,5 @@
 # pages/cart_page.py
-from pages.base_page import BasePage
+from FD.pages.base_page import BasePage
 
 class CartPage(BasePage):
     def verify_total_price(self, expected_price: str):

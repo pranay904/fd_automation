@@ -1,5 +1,5 @@
-from components.base_form_page import BaseFormPage
-from utils.config import CONTACT_US_URL
+from FD.components.base_form_page import BaseFormPage
+from FD.utils.config import CONTACT_US_URL
 
 class ContactUsPage(BaseFormPage):
 

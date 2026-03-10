@@ -1,4 +1,4 @@
-from pages.base_page import BasePage
+from FD.pages.base_page import BasePage
 import re
 import time
 

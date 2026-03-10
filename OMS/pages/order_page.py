@@ -1,5 +1,5 @@
 import re
-from utils.ui_helpers import UIHelpers
+from OMS.utils.ui_helpers import UIHelpers
 import time
 
 class OrderPage:

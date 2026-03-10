@@ -1,7 +1,7 @@
 import re
 
-from utils.config import PRESET_URL
-from test_data.expected_filters import FILTER_CONFIG
+from FD.utils.config import PRESET_URL
+from FD.test_data.expected_filters import FILTER_CONFIG
 
 
 class Preset:

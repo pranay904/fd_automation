@@ -1,6 +1,6 @@
 import time
 
-from pages.base_page import BasePage
+from FD.pages.base_page import BasePage
 
 class DiamondDetailsPage(BasePage):
 

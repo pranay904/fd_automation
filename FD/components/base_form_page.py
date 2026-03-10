@@ -1,6 +1,6 @@
 from playwright.sync_api import expect
 
-from pages.base_page import BasePage
+from FD.pages.base_page import BasePage
 
 class BaseFormPage(BasePage):
 
@@ -38,6 +38,13 @@ class BaseFormPage(BasePage):
         expect(locator).to_be_visible(timeout=5000)
         locator.fill(value)
 
+    def fill_email_jewelry(self, value):
+        locator = self.page.locator("//input[@name='email']")
+        locator.wait_for(status="visible")
+        # locator.scroll_into_view_if_needed()
+        # expect(locator).to_be_visible(timeout=5000)
+        locator.fill(value)
+
     def fill_phone(self, value):
         locator = self.page.locator("(//input[@name='phone'])[1]")
         expect(locator).to_be_visible(timeout=5000)  # wait up to 5s
@@ -60,7 +67,7 @@ class BaseFormPage(BasePage):
         file_input.set_input_files(file_path)
 
     # -------- submit --------
-    def submit_form(self, selector="button[type='submit']"):
+    def submit_form(self, selector="//button[normalize-space()='Submit']"):
         self.click(selector)
 
 
@@ -82,6 +89,7 @@ class BaseFormPage(BasePage):
         jewelry_tye.click()
         options = self.page.locator("//span[normalize-space()='Pendants']")
         options.click()
+
 
     def select_budget_type(self):
         budget_dropdown = self.page.locator("(//div[@class='current_active'])[2]")

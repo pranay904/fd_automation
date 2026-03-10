@@ -1,8 +1,8 @@
 import time
 
-from pages.bespoke_jewlery import Bespoke_Jewlery
-from utils.yaml_loader import load_yaml
-from test_data import media
+from FD.pages.forms.bespoke_jewlery import Bespoke_Jewelery
+from FD.utils.yaml_loader import load_yaml
+
 
 def test_bespoke_form(page):
 
@@ -11,13 +11,13 @@ def test_bespoke_form(page):
     data = load_yaml("test_data/form_data.yaml")["contact_us"]
 
     #open the form
-    bespoke = Bespoke_Jewlery(page)
-    bespoke.open_bespoke_jewlery()
+    bespoke = Bespoke_Jewelery(page)
+    bespoke.open_bespoke_jewelery()
 
     #fill the form
     bespoke.fill_name_jewelry(creds["name"])
-    time.sleep(1)
-    bespoke.fill_email_jewelry(creds["email"])
+    time.sleep(2)
+    bespoke.fill_email(creds["form_email"])
     bespoke.fill_phone(creds["phone"])
 
     # select jewelry & budget
@@ -25,18 +25,26 @@ def test_bespoke_form(page):
     bespoke.select_budget_type()
 
     bespoke.fill_message(data["message"])
+    #
+    #
+    # # Upload file
+    # bespoke.upload_file(
+    #     ".upload-btn",
+    #     "(//input[@type='file'])[1]",
+    #     str(file_path)
+    # )
+    #
+    #
+    # # Optional: wait until file is actually attached (recommended)
+    # page.locator("(//input[@type='file'])[1]").wait_for(state="attached")
 
-    # Optional file upload
-    bespoke.upload_file(
-        ".upload-btn",                  # Button that reveals the file input (your button selector)
-        "(//input[@type='file'])[1]",    # File input selector (adjust if needed)
-        "C:/Users/DELL/Documents/Image/images (1).jpg" # Path to the media file you want to upload
-    )
-    time.sleep(2)
-
+    # Submit form
     bespoke.submit_form()
+    time.sleep(10)
 
-    time.sleep(2)
+
+
+
 
 
 

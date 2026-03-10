@@ -1,4 +1,4 @@
-from pages.login_page import LoginPage
+from FD.pages.login.login_page import LoginPage
 
 
 def test_login_user_Used_Credentails(page):

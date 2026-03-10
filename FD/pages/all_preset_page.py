@@ -1,7 +1,7 @@
-from components.base_filters import BaseFilters
-from components.plp_filters import PLPFilters
-from components.pdp_details import PDPValidator
-from utils.config import PRESET_URL
+from FD.components.base_filters import BaseFilters
+from FD.components.plp_filters import PLPFilters
+from FD.components.pdp_details import PDPValidator
+from FD.utils.config import PRESET_URL
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
 class PresetPage:

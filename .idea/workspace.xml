@@ -5,110 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa347c3-eb55-4b97-88e4-7a4cd91d0934" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FD/pages/forms/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FD/pages/login/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/pages/POS/base_pos.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/pages/POS/base_pos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/pages/POS/create_cyo_order_pos.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/pages/POS/create_cyo_order_pos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_18-27-00.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_18-31-11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_18-46-33.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_19-32-02.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_19-54-38.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-09_20-09-59.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_12-48-09.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_12-59-38.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_13-02-24.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_13-15-14.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_13-59-13.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_14-11-26.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_14-12-38.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-11-01.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-14-18.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-17-03.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-18-25.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-19-36.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-21-41.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-24-34.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-28-57.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-34-44.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-35-06.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-38-52.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-43-05.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_15-45-40.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-03-51.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-12-46.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-15-29.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-15-45.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-23-07.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-24-08.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-25-00.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-27-33.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-32-29.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-33-53.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-36-00.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-38-51.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-41-00.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-47-35.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-56-02.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_16-58-49.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_17-01-49.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_17-10-13.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_17-11-58.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/report_2026-02-10_17-14-09.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/screenshots/test_cancelled_status_FAILED.png" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/reports/screenshots/test_cancelled_status_FAILED.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/screenshots/test_login_and_search_orders_FAILED.png" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/reports/screenshots/test_login_and_search_orders_FAILED.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/screenshots/test_shipped_status_FAILED.png" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/reports/screenshots/test_shipped_status_FAILED.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/0285ba04cb4212447d37e6439b3908b7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/07a3a7228b53679a566710fdd159f271.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/0cc88a99d08ab90c2b9055d948805995.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/147d2af6765a6eba4c25edab0fb23a95.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/2e43319e1b690fa516424fb1040d9f26.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/3c85631e68f3208cb05099ddfd8ce727.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/3f1fa8bc5dc71007afac2dd207579d09.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/42ddc6b8cccd418d902a49e9c304ec54.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/452de2b4a6b64294450fe8917f8a36a0.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/48df547d306cbd0107ffb82cc489e291.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/4d0c13853a42fb36c4f1975283a4221a.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/527292810caa6b6c9a0c2bdada6d0e4c.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/5668973a595155b1bc7458f91a6a6931.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/58b16093014a097a3b2b3d43ebd4a02d.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/6486bebdf454100dbe0870516ed86d65.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/6d12384afea5f7ded4635fabeace58ac.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/711f34331254b84ac2e5f935ce43d6b8.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/7afc9c92676beb3db2169f160064fbd7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/8297f81846cd022773d0bbd73fee90dd.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/851fac002ffb1b14e1db410a877429a7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/88144ecba7f694557b787561588d0171.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/92d67cf7cc42fd3d63b78ff8de9172ba.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/974bb0ce051960d98befe3cb9b682a70.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/9effcc0142c4355b537a6e84b3b284f8.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/a6305d45aeeb06b613f7f0802eff1f65.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/a7f5246473203c4b9b0e8b1651cf3ab2.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/a96acadf96d6259bdc1b0f9e4f4fd1ba.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/b3f248905bd7dcb3d8795c9802445665.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/c1e13022d8aee235147c77b1ee25da65.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/c1e5ba8c0fa45b8bc6f18f3f4db212aa.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/c510fe5834106bc03264a4ae80940fa0.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/caea9d37bc38eefa85c1f2fefb00c546.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/cbbcbb7d7725b4ee7bfb75276ab2eb72.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/d10bb188c283ffd4d353c5fd1238ae4f.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/d4a95076c636d3bf3ec348578b99a86b.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/d4ef233afd7c3c3678b6421c09cc0bce.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/d5e6fc0ea296e1fa880356f6ff2bd09a.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/db23c7489d9eaff7de8b48762ce7f9a0.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/ddc665ee06705aa6ca31f0a10dfc97f6.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/df19f892458cbe6ff7881624273ae891.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/e8564bf94e0525848acc242624239913.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/e8efdb9ba88bc205f9863b8b1feeb575.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/ecf195ee88701cbc6377d4f7b3123fc5.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/f5405d5d770ad200871480fe7cb7272e.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/f80efb410c401fc8cb77e3507cb6d153.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/f958ddcbff7dcb6b87c9990fd00f3755.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/fa570e3a90d1d26914f8c525d8d662a5.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/fb12e47ac11ec2b59eeaf9184cd6e507.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/reports/videos/fd8f6d22761b91b262a0b3452e3a4e96.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/tests/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/tests/test_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMS/tests/test_order_status_updates.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMS/tests/test_order_status_updates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/components/base_form_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/components/base_form_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/config/credentials.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FD/config/credentials.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/Gemologist_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/Gemologist_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/bespoke_jewlery.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/bespoke_jewlery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/contact_us_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/contact_us_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/cyo_setting_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cyo_setting_plp_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/drop_a_hint_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/drop_a_hint_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/home_page_ele.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/home_page_ele.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/login/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/login/register_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/test_data/media/images (1).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FD/test_data/media/images.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Regression/test_preset_all_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Regression/test_preset_all_filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_bespoke_jewelry.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_bespoke_jewelry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_contact_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_contact_us.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_drop_hint.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_drop_hint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_gemologist.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_gemologist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/test_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/test_preset.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_preset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/utils/cyo_normalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/cyo_normalizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/utils/json_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/json_reader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +82,13 @@
     "Python tests.Python tests for tests.test_register.test_register_user.executor": "Run",
     "Python tests.Python tests in test_checkout_flow.py.executor": "Run",
     "Python tests.Python tests in test_register.py.executor": "Run",
+    "Python tests.pytest for FD.tests.Regression.test_checkout_flow.test_setting_and_diamond_details_match.executor": "Run",
+    "Python tests.pytest for FD.tests.Regression.test_preset_all_filters.test_preset_filters.executor": "Run",
+    "Python tests.pytest for FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor": "Run",
+    "Python tests.pytest for FD.tests.Sanity.test_contact_us.test_contact_us_form.executor": "Run",
+    "Python tests.pytest for FD.tests.Sanity.test_drop_hint.test_drop_hint.executor": "Run",
+    "Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails.executor": "Run",
+    "Python tests.pytest for FD.tests.test_register.test_register_user.executor": "Run",
     "Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order.executor": "Run",
     "Python.register.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -167,7 +96,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "shop__checkout__test",
+    "git-widget-placeholder": "update-gitignore-and-config",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "C:/Users/DELL/python_automation/Fd_Functional_Tets/test_data",
@@ -187,8 +116,12 @@
       <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\tests\Regression" />
       <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\tests" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\FD\pages\login" />
+      <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\FD\pages\forms" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order">
+  <component name="RunManager" selected="Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Fd_Functional_Tets" />
       <option name="ENV_FILES" value="" />
@@ -213,54 +146,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_checkout_flow" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Fd_Functional_Tets" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_checkout_flow&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_product_details_match" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Fd_Functional_Tets" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_product_details_match&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Fd_Functional_Tets" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.Regression.test_checkout_flow.test_setting_details_select_this_setting&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for tests.test_home_page.test_home_page" type="tests" factoryName="Autodetect" nameIsGenerated="true">
       <module name="Fd_Functional_Tets" />
       <option name="ENV_FILES" value="" />
@@ -276,22 +161,6 @@
       <option name="_new_additionalArguments" value="&quot;--headed&quot;" />
       <option name="_new_target" value="&quot;tests.test_home_page.test_home_page&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests in C:/Users/DELL/python_automation/Fd_Functional_Tets/tests/Regression/test_checkout_flow.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Fd_Functional_Tets" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/Regression/test_checkout_flow.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in C:/Users/DELL/python_automation/Fd_Functional_Tets/tests/test_register.py" type="tests" factoryName="Autodetect" nameIsGenerated="true">
@@ -311,7 +180,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Fd_Functional_Tets" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -325,17 +194,89 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order&quot;" />
+      <option name="_new_target" value="&quot;FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for FD.tests.Sanity.test_contact_us.test_contact_us_form" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;FD.tests.Sanity.test_contact_us.test_contact_us_form&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for FD.tests.Sanity.test_drop_hint.test_drop_hint" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;FD.tests.Sanity.test_drop_hint.test_drop_hint&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for FD.tests.test_login.test_login_user_Used_Credentails" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;FD.tests.test_login.test_login_user_Used_Credentails&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for FD.tests.test_register.test_register_user" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Fd_Functional_Tets" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;FD.tests.test_register.test_register_user&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order" />
-        <item itemvalue="Python tests.Python tests in C:/Users/DELL/python_automation/Fd_Functional_Tets/tests/Regression/test_checkout_flow.py" />
-        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_product_details_match" />
-        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting" />
-        <item itemvalue="Python tests.Python tests for tests.Regression.test_checkout_flow.test_checkout_flow" />
+        <item itemvalue="Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails" />
+        <item itemvalue="Python tests.pytest for FD.tests.test_register.test_register_user" />
+        <item itemvalue="Python tests.pytest for FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form" />
+        <item itemvalue="Python tests.pytest for FD.tests.Sanity.test_contact_us.test_contact_us_form" />
+        <item itemvalue="Python tests.pytest for FD.tests.Sanity.test_drop_hint.test_drop_hint" />
       </list>
     </recent_temporary>
   </component>
@@ -419,6 +360,22 @@
           <url>file://$PROJECT_DIR$/tests/Regression/test_preset_all_filters.py</url>
           <line>9</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FD/pages/cyor_complete_page.py</url>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FD/pages/forms/contact_us_page.py</url>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FD/conftest.py</url>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FD/pages/home_page_ele.py</url>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
