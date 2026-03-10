@@ -12,6 +12,25 @@ class EditProduct(OrderStatusBase):
         self.open_order_and_all_order_line()
         self.wait_delay()
 
+    def preset_product(self):
+        # Get the current page URL
+        current_url = self.page.url
+
+        # Append the parameters directly
+        new_url = current_url + "&show_child=false&order_line_type=7"
+
+        print("Navigating to preset product URL:", new_url)
+
+        # Navigate to the new URL
+        self.page.goto(new_url)
+
+        panel = self.page.locator(
+            "(//span[@class='v-expansion-panel-title__overlay'])[1]"
+        )
+        self.click_with_effect(panel)
+
+
+
     def edit_product_form(self):
         section = self.page.locator(
             "//div[@class='v-row main_row']//div[@class='v-col v-col-8']"
@@ -24,26 +43,38 @@ class EditProduct(OrderStatusBase):
 
     # --- Fun 1: Update Ring Size ---
     def update_size(self):
-        size = "7.25"
-        size_options = ["7.25", "7.5", "7.75", "8", "8.25", "8.5",
-                        "8.75", "9", "9.25", "9.5", "9.75"]
 
-        size_text = self.page.locator("(//div[@class='v-field__field'])[24]")
+        size_options = [
+            '3', '3.25', '3.5', '3.75', '4', '4.25', '4.5', '4.75', '5', '5.25', '5.5', '5.75',
+            '6', '6.25', '6.5', '6.75', '7', '7.25', '7.5', '7.75', '8', '8.25', '8.5', '8.75',
+            '9', '9.25', '9.5', '9.75', '10', '10.25', '10.5', '10.75', '11', '11.25', '11.5', '11.75',
+            '12', '12.25', '12.5', '12.75', '13'
+        ]
+
+        size_text = self.page.locator("(//div[@class='v-field__input'])[11]")
+        size_text.wait_for(state="visible")
+
         current_size_text = size_text.inner_text().strip()
-        print("Selecting size:", current_size_text)
+        print("Current size:", current_size_text)
 
         size_dropdown = self.page.locator("(//div[@role='combobox'])[10]")
         size_dropdown.wait_for(state="visible")
         self.click_with_effect(size_dropdown)
 
-        if current_size_text == size:
-            next_size = size_options[(size_options.index(size) + 1) % len(size_options)]
-            size_option = self.page.locator(f"//div[@role='option' and normalize-space()='{next_size}']")
+        if current_size_text in size_options:
+            next_size = size_options[(size_options.index(current_size_text) + 1) % len(size_options)]
         else:
-            size_option = self.page.locator(f"//div[@role='option' and normalize-space()='{size}']")
+            next_size = size_options[0]
+
+        print("Selecting size:", next_size)
+
+        size_option = self.page.locator(
+            f"//div[@role='option' and normalize-space()='{next_size}']"
+        )
 
         size_option.wait_for(state="visible")
         self.click_with_effect(size_option)
+
 
     # --- Fun 2: Handle Size Change Modal ---
     def handle_size_modal(self):
@@ -68,6 +99,21 @@ class EditProduct(OrderStatusBase):
         except:
             print("Confirmation modal did not appear")
             time.sleep(2)
+
+        time.sleep(5)
+
+            # verify order logs
+        order_log = self.page.get_by_role("button", name="Order-Logs")
+        order_log.wait_for(state="visible")
+        order_log.scroll_into_view_if_needed()
+        self.click_with_effect(order_log)
+
+        verify_recent_logs = self.page.locator("//div[@class='v-card-text']//div[3]")
+        verify_recent_logs.wait_for(state="visible")
+
+        self.hover_with_effect(verify_recent_logs)
+
+
 
     # --- Fun 3: Update Mount ---
     def update_mount(self):
@@ -127,3 +173,78 @@ class EditProduct(OrderStatusBase):
         update.wait_for(state="visible")
         update.scroll_into_view_if_needed()
         self.click_with_effect(update)
+
+    def add_product_note(self):
+
+        product_note = self.page.locator("//span[normalize-space()='Add-Product-Note']")
+        product_note.scroll_into_view_if_needed()
+
+        self.click_with_effect(product_note)
+
+        # enter the product note
+
+        add_note = self.page.get_by_role("textbox", name="Enter Product-Note")
+        self.fill_with_effect(add_note, value="Enter Product Note Here & click on update")
+
+        update = self.page.locator("//button[@class='v-btn v-btn--slim v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-default v-btn--variant-flat']")
+
+        update.wait_for(state="visible")
+        update.scroll_into_view_if_needed()
+        self.click_with_effect(update)
+
+
+
+    def edit_product_status(self):
+        status_options = ["In Process", "Factory Complete", "Buy From NY"]
+
+        # Open Edit Product Status form
+        click_on_link = self.page.locator("//span[normalize-space()='Edit Product Status']")
+        self.click_with_effect(click_on_link)
+
+        # Get current status
+        text = self.page.locator("(//div[@class='v-field__input'])[11]")
+        text.wait_for(state="visible")
+        current_status_text = text.inner_text().strip()
+        print("Current status:", current_status_text)
+
+        # Open dropdown
+        status_dropdown = self.page.locator("(//div[@role='combobox'])[10]")
+        status_dropdown.wait_for(state="visible")
+        self.click_with_effect(status_dropdown)
+
+        # select next status
+        if current_status_text in status_options:
+            next_status = status_options[(status_options.index(current_status_text) + 1) % len(status_options)]
+        else:
+            next_status = status_options[0]
+
+        print("Selecting status:", next_status)
+
+        # Click the option
+        option_locator = self.page.locator(f"//div[@role='option' and normalize-space()='{next_status}']")
+        option_locator.wait_for(state="visible")
+        self.click_with_effect(option_locator)
+
+        update = self.page.locator("//button[@class='v-btn v-btn--slim v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-default v-btn--variant-flat']")
+
+        update.wait_for(state="visible")
+        update.scroll_into_view_if_needed()
+        self.click_with_effect(update)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
