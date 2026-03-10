@@ -118,15 +118,29 @@ def test_add_diamond_line(page):
     update.add_diamond_line()
 
 
-def test_edit_update_product(page):
+
+def test_update_product_size(page):
 
     login(page)
 
     edit_product = EditProduct(page)
     edit_product.open_all_order_line()
     edit_product.edit_product_form()
-    edit_product.open_the_edit_modal()
+    edit_product.update_size()
+    edit_product.handle_size_modal()
+
+
+def test_update_mount_and_other_details(page):
+
+    login(page)
+
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
     edit_product.edit_product_form()
+    edit_product.update_mount()
+    edit_product.update_product_details()
+
+
 
 
 
