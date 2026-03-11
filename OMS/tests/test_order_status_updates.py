@@ -9,7 +9,7 @@ from OMS.pages.order_status_update.ReturnRequestedStatus import ReturnRequestedS
 from OMS.pages.order_status_update.ReturnStatus import ReturnStatus
 from OMS.pages.order_status_update.cancelled_status import CancelledStatus
 from OMS.pages.order_status_update.delivered_status import DeliveredStatus
-from OMS.pages.order_status_update.edit_product import EditProduct
+from OMS.pages.order_status_update.preset_ring_edit_product_details import EditProduct
 from OMS.pages.order_status_update.order_line_update import AddDiamondLines
 from OMS.pages.order_status_update.orderstatusbase import OrderStatusBase
 from OMS.pages.order_status_update.shipped_status import ShippedStatus
@@ -169,6 +169,28 @@ def test_update_product_status(page):
     edit_product.preset_product()
     time.sleep(2)
     edit_product.edit_product_status()
+
+def test_update_manufacture(page):
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_manufacture()
+
+
+def test_update_setting_status(page):
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_setting_status()
+
+
+
 
 
 

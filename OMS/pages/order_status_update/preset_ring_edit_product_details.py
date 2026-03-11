@@ -1,4 +1,7 @@
+import random
 import time
+
+from service_identity.cryptography import verify_certificate_hostname
 
 from OMS.pages.order_status_update.orderstatusbase import OrderStatusBase
 
@@ -117,7 +120,7 @@ class EditProduct(OrderStatusBase):
 
     # --- Fun 3: Update Mount ---
     def update_mount(self):
-        mount = "Plain"
+        mount = "Studded"
         mount_options = ["Studded", "Semi Mounting", "Mounting", "Plain"]
 
         mount_text = self.page.locator("(//div[@class='v-field__field'])[25]")
@@ -156,11 +159,11 @@ class EditProduct(OrderStatusBase):
 
         # Toggle Jewelry Certification
         jewelry_certification = self.page.get_by_role("checkbox", name="Add Jewelry Certification")
-        self.click_with_effect(jewelry_certification)
+        self.click_with_effect(jewelry_certification) # Yes/ NO
 
         # Toggle Appraisal
         appraisal = self.page.get_by_role("checkbox", name="Add Appraisal")
-        self.click_with_effect(appraisal)
+        self.click_with_effect(appraisal) # $50
 
         # Add Product Note
         product_note = self.page.get_by_role("checkbox", name="Add To Product Note")
@@ -173,6 +176,24 @@ class EditProduct(OrderStatusBase):
         update.wait_for(state="visible")
         update.scroll_into_view_if_needed()
         self.click_with_effect(update)
+
+        verify_inscription = self.page.locator("//p[starts-with(normalize-space(), 'Inscription -')]")
+        self.click_with_effect(verify_inscription)
+        time.sleep(2)
+
+        verify_appraisal = self.page.locator("//p[starts-with(normalize-space(), 'Appraisal Price -')]")
+        self.click_with_effect(verify_appraisal)
+
+        verify_certificate = self.page.locator("//p[starts-with(normalize-space(), 'Certification No -')]")
+        self.click_with_effect(verify_certificate)
+
+        verify_third_code = self.page.locator("//p[starts-with(normalize-space(), 'Third Code -')]")
+        self.click_with_effect(verify_third_code)
+
+        verify_jewelry_certified = self.page.locator("//p[starts-with(normalize-space(), 'Jewelry-Certified -')]")
+        self.click_with_effect(verify_jewelry_certified)
+
+
 
     def add_product_note(self):
 
@@ -192,6 +213,9 @@ class EditProduct(OrderStatusBase):
         update.scroll_into_view_if_needed()
         self.click_with_effect(update)
 
+        verify_the_product_status = self.page.locator("//p[starts-with(normalize-space(), 'Product Status :')]")
+        self.hover_with_effect(verify_the_product_status)
+        time.sleep(2)
 
 
     def edit_product_status(self):
@@ -230,6 +254,133 @@ class EditProduct(OrderStatusBase):
         update.wait_for(state="visible")
         update.scroll_into_view_if_needed()
         self.click_with_effect(update)
+
+
+    def edit_manufacture(self):
+
+        # Click "Edit Manufacturer" button
+        open_edit_manf = self.page.get_by_text("Edit Manufacturer", exact=True)
+        self.click_with_effect(open_edit_manf)
+
+        # Locate the manufacturer dropdown field
+        text = self.page.locator("(//div[@class='v-field__input'])[11]")
+        text.wait_for(state="visible")
+        text.scroll_into_view_if_needed()
+
+        # Get currently selected manufacturer
+        current_text = text.inner_text().strip()
+        print("current manufacture:", current_text)
+
+        # Open the dropdown
+        text.click()
+
+        # Locate all options
+        options = self.page.locator("(//div[@role='listbox'])[1]//div[@role='option']")
+        all_options = options.all_inner_texts()
+        print("All options list:", all_options)
+
+        # Remove the currently selected value
+        available_options = []
+        for opt in all_options:
+            if opt != current_text:
+                available_options.append(opt)
+
+        # Pick a different manufacturer randomly
+        new_manufacture = random.choice(available_options)
+        print("Selecting new manufacture:", new_manufacture)
+
+        # Click the new option using normalize-space() to handle extra spaces
+        new_option = self.page.locator(
+            f"//div[@role='option'][normalize-space()='{new_manufacture}']"
+        )
+        new_option.wait_for(state="visible", timeout=5000)  # wait until visible
+        self.click_with_effect(new_option)
+
+        update = self.page.locator("//button[@class='v-btn v-btn--slim v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-default v-btn--variant-flat']")
+
+        update.wait_for(state="visible")
+        update.scroll_into_view_if_needed()
+        self.click_with_effect(update)
+
+
+
+    def edit_setting_status(self):
+
+
+        # Click "Edit status" button
+        open_edit_manf = self.page.get_by_text("Edit Setting Status", exact=True)
+        self.click_with_effect(open_edit_manf)
+
+        # Locate the manufacturer dropdown field
+        text = self.page.locator("(//div[@class='v-field__input'])[11]")
+        text.wait_for(state="visible")
+        text.scroll_into_view_if_needed()
+
+        # Get currently selected manufacturer
+        current_text = text.inner_text().strip()
+        print("current status:", current_text)
+
+        # Open the dropdown
+        self.click_with_effect(text)
+
+        # Locate all options
+        options = self.page.locator("(//div[@role='listbox'])[1]//div[@role='option']")
+        all_options = options.all_inner_texts()
+        print("All options list:", all_options)
+
+        #empty list
+        available_options = []
+
+        # Remove the currently selected value
+
+        for opt in all_options:
+            if opt != current_text:
+                available_options.append(opt)
+
+        # Pick a different manufacturer randomly
+
+        new_setting_status = random.choice(available_options)
+        print("Selecting new setting status:", new_setting_status)
+
+        # Click the new option using normalize-space() to handle extra spaces
+        new_option = self.page.locator(
+            f"//div[@role='option'][normalize-space()='{new_setting_status}']"
+        )
+        new_option.wait_for(state="visible", timeout=5000)  # wait until visible
+        self.click_with_effect(new_option)
+
+        update = self.page.locator(
+            "//button[@class='v-btn v-btn--slim v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-default v-btn--variant-flat']")
+
+        update.wait_for(state="visible")
+        update.scroll_into_view_if_needed()
+        self.click_with_effect(update)
+
+        verify_the_updated_status= self.page.locator("//p[starts-with(normalize-space(), 'Setting Status -')]")
+        self.hover_with_effect(verify_the_updated_status)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
