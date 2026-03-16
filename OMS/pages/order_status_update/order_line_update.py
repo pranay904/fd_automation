@@ -39,3 +39,48 @@ class AddDiamondLines(OrderStatusBase):
 
         self.click_with_effect(create_button)
 
+    def delete_dia_line(self):
+        delete_dia_line = self.page.get_by_text("Delete Diamond Line", exact=True)
+        self.click_with_effect(delete_dia_line)
+
+    def delete_diam(self):
+        delete_diam = self.page.get_by_text("Delete Diamond", exact=True)
+        self.click_with_effect(delete_diam)
+
+
+    def add_diam_from_inventry(self):
+        stock = "D46382"
+
+        text_box = self.page.get_by_role("textbox", name="Enter Lot Number")
+        self.fill_with_effect(text_box, stock)
+
+        add_diamond = self.page.locator(
+            "//button[@class='v-btn v-btn--slim v-theme--light bg-indigo-darken-3 px-4 v-btn--density-default v-btn--size-default v-btn--variant-flat']"
+        )
+        self.click_with_effect(add_diamond)
+
+    def edit_dia_status(self):
+        self.add_diamond_line()
+
+        self.add_diam_from_inventry()
+
+        edit_dia_status = self.page.get_by_text("Edit Diamond Status", exact=True)
+        self.click_with_effect(edit_dia_status)
+
+
+        text = self.page.locator("(//label[@id='input-v-0-743-label'])[1]")
+        current_text= text.inner_text().strip()
+
+        print("Current diamonds status: ", current_text)
+
+
+
+
+
+
+
+
+
+
+
+
