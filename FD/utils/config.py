@@ -25,6 +25,9 @@ CONTACT_US_URL = "https://friendlydiamonds.com/contact-us"
 BESPOKE_JEWELRY_URL = "https://friendlydiamonds.com/customized-jewelry"
 
 
+FCI_quiz= "https://friendlydiamonds.com/fci/engagement-ring-quiz"
+
+
 
 
 # TEST DATA PATHS
