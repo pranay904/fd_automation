@@ -20,15 +20,15 @@
     "3": "https://friendlydiamonds.com/fci/4/statement.jpg"
   },
   "Q5": {
-    "1": "https://friendlydiamonds.com/fci/5/medium_light.png",
+    "1": "https://friendlydiamonds.com/fci/5/medium_neutral_light.png",
     "2": "https://friendlydiamonds.com/fci/5/medium_neutral_light.png",
     "3": "https://friendlydiamonds.com/fci/5/medium_neutral.png",
     "4": "https://friendlydiamonds.com/fci/5/medium_dark_neutral.png",
     "5": "https://friendlydiamonds.com/fci/5/medium_dark.png"
   },
   "Q6": {
-    "1": "https://friendlydiamonds.com/fci/6/petite_light.png",
-    "2": "https://friendlydiamonds.com/fci/6/medium_light.png",
-    "3": "https://friendlydiamonds.com/fci/6/bold_light.png"
+    "1": "https://friendlydiamonds.com/fci/6/medium_neutral_light.png",
+    "2": "https://friendlydiamonds.com/fci/6/bold_neutral_light.png",
+    "3": "https://friendlydiamonds.com/fci/6/bold_neutral_light.png"
   }
 }

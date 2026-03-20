@@ -2,19 +2,23 @@ import pandas as pd
 import os
 from datetime import datetime
 
+# Always resolve to FD/reports/excel regardless of cwd
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_REPORT_DIR = os.path.join(_BASE_DIR, "reports", "excel")
+
 
 class ExcelReporter:
 
     def __init__(self):
         self.rows = []
+        os.makedirs(_REPORT_DIR, exist_ok=True)
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.path = os.path.join(_REPORT_DIR, f"quiz_results_{ts}.xlsx")
 
     def add_row(self, browser, answers, validations):
-        """
-        validations: list of dicts with keys:
-          step, expected, actual, status (PASS/FAIL)
-        """
+        """Add rows and immediately flush to disk so data is never lost."""
         base = {
-            "Browser":   browser,
+            "Browser": browser,
             "Q1": answers[0], "Q2": answers[1], "Q3": answers[2],
             "Q4": answers[3], "Q5": answers[4], "Q6": answers[5],
         }
@@ -26,12 +30,18 @@ class ExcelReporter:
             row["Status"]   = v.get("status", "")
             row["Error"]    = v.get("error", "")
             self.rows.append(row)
+        # Save after every test so partial results are always on disk
+        self._write()
 
     def export(self):
-        out_dir = os.path.join("FD", "reports", "excel")
-        os.makedirs(out_dir, exist_ok=True)
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        path = os.path.join(out_dir, f"quiz_results_{ts}.xlsx")
+        self._write()
+        print(f"[Report saved] {self.path}")
+        return self.path
+
+    def _write(self):
+        if not self.rows:
+            return
+        path = self.path
 
         df = pd.DataFrame(self.rows, columns=[
             "Browser", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6",
