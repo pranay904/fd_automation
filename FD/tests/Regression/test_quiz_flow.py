@@ -17,7 +17,7 @@ class TestQuizFlow:
 
         product, price, overall, validations = quiz.run_quiz_flow(answers)
 
-        report.add_row(browser, answers, validations)
+        report.add_row(browser, answers, validations, overall=overall, product=product, price=price)
 
         # Log result but don't hard-fail — keep running all 1215
         if overall == "FAIL":

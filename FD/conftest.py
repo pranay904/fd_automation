@@ -5,18 +5,31 @@ from playwright.sync_api import sync_playwright
 
 @pytest.fixture(scope="function")
 def page(request):
-    browser_name = getattr(request, "param", "chromium")
-
+    # Chromium only, headless=True for speed
     playwright = sync_playwright().start()
-
-    if browser_name == "firefox":
-        browser = playwright.firefox.launch(headless=False, slow_mo=100)
-    elif browser_name == "edge":
-        browser = playwright.chromium.launch(channel="msedge", headless=False, slow_mo=100)
-    else:
-        browser = playwright.chromium.launch(headless=False, slow_mo=100)
-
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context(viewport={"width": 1280, "height": 800})
+    # Block Netcore overlay before any page loads
+    context.add_init_script("""
+        const _block = () => {
+            const style = document.createElement('style');
+            style.id = '__block_netcore__';
+            style.textContent = `
+                #smt-overlay, #st_notification_banner, div[smtmsgid],
+                [id^='smt'], [class*='smt-block'], [class*='smt-close'] {
+                    display: none !important;
+                    pointer-events: none !important;
+                    visibility: hidden !important;
+                    z-index: -9999 !important;
+                }
+            `;
+            if (!document.getElementById('__block_netcore__')) {
+                (document.head || document.documentElement).appendChild(style);
+            }
+        };
+        _block();
+        new MutationObserver(_block).observe(document.documentElement, {childList: true, subtree: true});
+    """)
     pg = context.new_page()
 
     yield pg
