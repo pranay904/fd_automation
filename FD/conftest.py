@@ -1,103 +1,76 @@
 import pytest
-from playwright.sync_api import sync_playwright
 import os
+from playwright.sync_api import sync_playwright
 
 
-@pytest.fixture(scope="session")
-def user_email():
-    """
-    Stores registered email to reuse in login test
-    """
-    return {}
-
-
-@pytest.fixture(params=["chromium", "firefox", "edge"],scope="session")
+@pytest.fixture(scope="function")
 def page(request):
-    with sync_playwright() as p:
-        if request.param == "chromium":
-            browser = p.chromium.launch(headless=False)
+    # Chromium only, headless=True for speed
+    playwright = sync_playwright().start()
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context(viewport={"width": 1280, "height": 800})
+    # Block Netcore overlay before any page loads
+    context.add_init_script("""
+        const _block = () => {
+            const style = document.createElement('style');
+            style.id = '__block_netcore__';
+            style.textContent = `
+                #smt-overlay, #st_notification_banner, div[smtmsgid],
+                [id^='smt'], [class*='smt-block'], [class*='smt-close'] {
+                    display: none !important;
+                    pointer-events: none !important;
+                    visibility: hidden !important;
+                    z-index: -9999 !important;
+                }
+            `;
+            if (!document.getElementById('__block_netcore__')) {
+                (document.head || document.documentElement).appendChild(style);
+            }
+        };
+        _block();
+        new MutationObserver(_block).observe(document.documentElement, {childList: true, subtree: true});
+    """)
+    pg = context.new_page()
 
-        elif request.param == "firefox":
-            browser = p.firefox.launch(headless=False)
+    yield pg
 
-        else:  # edge
-            browser = p.chromium.launch(channel="msedge", headless=False)
-
-        context = browser.new_context()
-        page = context.new_page()
-
-        yield page
-
+    try:
         context.close()
+    except Exception:
+        pass
+    try:
         browser.close()
+    except Exception:
+        pass
+    try:
+        playwright.stop()
+    except Exception:
+        pass
 
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item):
+def pytest_runtest_makereport(item, call=None):
     outcome = yield
     report = outcome.get_result()
 
     if report.when == "call" and report.failed:
-        page = item.funcargs.get("page")
-        if page:
-            os.makedirs("reports/screenshots", exist_ok=True)
-            page.screenshot(path=f"reports/screenshots/{item.name}.png")
-
-#
-#
-# @pytest.hookimpl(hookwrapper=True)
-# def pytest_runtest_makereport(item):
-#     outcome = yield
-#     report = outcome.get_result()
-#
-#     if report.when == "call" and report.failed:
-#         page = item.funcargs.get("page")
-#         if page:
-#             os.makedirs("reports/screenshots", exist_ok=True)
-#             page.screenshot(path=f"reports/screenshots/{item.name}.png")
+        pg = item.funcargs.get("page")
+        if pg:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            screenshots_dir = os.path.join(base_dir, "reports", "screenshots")
+            os.makedirs(screenshots_dir, exist_ok=True)
+            screenshot_path = os.path.join(screenshots_dir, f"{item.name}.png")
+            try:
+                pg.screenshot(path=screenshot_path)
+                print(f"[Screenshot saved] {screenshot_path}")
+            except Exception as e:
+                print(f"[Screenshot failed] {e}")
 
 
-# conftest.py
-# import pytest
-# import os
-# from playwright.sync_api import sync_playwright
-#
-# @pytest.fixture(scope="session")
-# def browser_context():
-#     """Launch browser context once per session"""
-#     with sync_playwright() as p:
-#         browser = p.chromium.launch(headless=False)  # You can set `headless=True` for headless mode
-#         context = browser.new_context()
-#         yield context
-#         browser.close()
-#
-# @pytest.fixture(scope="function")
-# def page(browser_context):
-#     """Provide a fresh page per test function"""
-#     page = browser_context.new_page()
-#
-#     # Set up listeners for console & network
-#     page.on("console", lambda msg: print(f"[Console {msg.type}] {msg.text}"))
-#     page.on("request", lambda req: print(f"[Request] {req.method} {req.url}"))
-#     page.on("response", lambda res: print(f"[Response {res.status}] {res.url}"))
-#
-#     yield page
-#     page.close()  # Close page but keep browser alive
-#
-# # Hook to take screenshot on failure
-# @pytest.hookimpl(hookwrapper=True)
-# def pytest_runtest_makereport(item, call):
-#     outcome = yield
-#     report = outcome.get_result()
-#
-#     if report.when == "call" and report.failed:
-#         page = item.funcargs.get("page")
-#         if page:
-#             os.makedirs("reports/screenshots", exist_ok=True)
-#             screenshot_path = f"reports/screenshots/{item.name}.png"
-#             try:
-#                 page.screenshot(path=screenshot_path)
-#                 print(f"[Screenshot saved] {screenshot_path}")
-#             except Exception as e:
-#                 print(f"[Screenshot failed] {e}")
-
+def pytest_sessionfinish(session, exitstatus):
+    """Safety net — export report even if session is interrupted."""
+    try:
+        from FD.tests.Regression.test_quiz_flow import report
+        report.export()
+    except Exception:
+        pass

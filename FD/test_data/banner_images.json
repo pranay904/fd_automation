@@ -1,0 +1,34 @@
+{
+  "Q1": {
+    "1": "https://friendlydiamonds.com/fci/1/smart.jpg",
+    "2": "https://friendlydiamonds.com/fci/1/premium.jpg",
+    "3": "https://friendlydiamonds.com/fci/1/absolute.jpg"
+  },
+  "Q2": {
+    "1": "https://friendlydiamonds.com/fci/2/classic.jpg",
+    "2": "https://friendlydiamonds.com/fci/2/modern.jpg",
+    "3": "https://friendlydiamonds.com/fci/2/unique.jpg"
+  },
+  "Q3": {
+    "1": "https://friendlydiamonds.com/fci/3/everyday.jpg",
+    "2": "https://friendlydiamonds.com/fci/3/regular.jpg",
+    "3": "https://friendlydiamonds.com/fci/3/special.jpg"
+  },
+  "Q4": {
+    "1": "https://friendlydiamonds.com/fci/4/elegance.jpg",
+    "2": "https://friendlydiamonds.com/fci/4/noticeable.jpg",
+    "3": "https://friendlydiamonds.com/fci/4/statement.jpg"
+  },
+  "Q5": {
+    "1": "https://friendlydiamonds.com/fci/5/medium_neutral_light.png",
+    "2": "https://friendlydiamonds.com/fci/5/medium_neutral_light.png",
+    "3": "https://friendlydiamonds.com/fci/5/medium_neutral.png",
+    "4": "https://friendlydiamonds.com/fci/5/medium_dark_neutral.png",
+    "5": "https://friendlydiamonds.com/fci/5/medium_dark.png"
+  },
+  "Q6": {
+    "1": "https://friendlydiamonds.com/fci/6/medium_neutral_light.png",
+    "2": "https://friendlydiamonds.com/fci/6/bold_neutral_light.png",
+    "3": "https://friendlydiamonds.com/fci/6/bold_neutral_light.png"
+  }
+}
