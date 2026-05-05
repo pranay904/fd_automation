@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 def page(request):
     # Chromium only, headless=True for speed
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(viewport={"width": 1280, "height": 800})
     # Block Netcore overlay before any page loads
     context.add_init_script("""
