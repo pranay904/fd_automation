@@ -1,153 +1,245 @@
-import time
 import pytest
 from FD.pages.cyo_setting_plp_page import CYOSettingPLPPage
 from FD.pages.cyo_setting_details_page import CYOSettingDetailsPage
 from FD.pages.diamond_plp_page import DiamondPLPPage
 from FD.pages.diamond_details_page import DiamondDetailsPage
-from FD.pages.cyor_complete_page import CompletePage  # Import the CompletePage
+from FD.pages.cyor_complete_page import CompletePage
+from FD.pages.cart_page import CartPage
+from FD.utils.retry import retry_on_failure
+from FD.utils.logger import logger
 
 
 @pytest.fixture(scope="function")
 def browser(page):
-    """
-    Fixture for providing the page object to the test.
-    """
     return page
 
 
 @pytest.fixture(scope="function")
 def cyo_pages(browser):
-    """
-    Fixture to initialize Setting and Diamond pages.
-    """
     return {
-        "setting_plp": CYOSettingPLPPage(browser),
+        "setting_plp":     CYOSettingPLPPage(browser),
         "setting_details": CYOSettingDetailsPage(browser),
-        "diamond_plp": DiamondPLPPage(browser),
+        "diamond_plp":     DiamondPLPPage(browser),
         "diamond_details": DiamondDetailsPage(browser),
-        "complete": CompletePage(browser)  # Adding the CompletePage to the fixture
+        "complete":        CompletePage(browser),
+        "cart":            CartPage(browser),
     }
 
 
 def test_setting_and_diamond_details_match(cyo_pages):
-    """
-    Test to verify setting details + diamond details match between PLP and details pages.
-    """
-
-    setting_plp = cyo_pages["setting_plp"]
+    setting_plp     = cyo_pages["setting_plp"]
     setting_details = cyo_pages["setting_details"]
-    diamond_plp = cyo_pages["diamond_plp"]
+    diamond_plp     = cyo_pages["diamond_plp"]
     diamond_details = cyo_pages["diamond_details"]
-    complete = cyo_pages["complete"]  # Accessing the Complete page
+    complete        = cyo_pages["complete"]
+    cart            = cyo_pages["cart"]
+
+    all_validations = []
 
     # -------------------- SETTING PLP --------------------
-    setting_plp.go_to()
+    logger.info("Step: Setting PLP")
+    retry_on_failure(setting_plp.page, lambda: setting_plp.go_to())
     plp_setting_details = setting_plp.get_product_details()
-
-    # Click on setting
     setting_plp.click_product()
 
-    # Verify setting details page
+    # -------------------- SETTING DETAILS --------------------
+    logger.info("Step: Setting Details")
     try:
         setting_details.verify_product_details(plp_setting_details)
-        print("Setting details match between PLP and Details page.")
+        all_validations.append({
+            "step": "Setting Details Match (PLP vs Details)",
+            "expected": str(plp_setting_details),
+            "actual": "Matched",
+            "status": "PASS",
+            "error": ""
+        })
+        print("  [PASS] Setting details match between PLP and Details page.")
     except AssertionError as e:
-        print(f"Setting validation failed: {e}")
-        raise
+        all_validations.append({
+            "step": "Setting Details Match (PLP vs Details)",
+            "expected": str(plp_setting_details),
+            "actual": "Mismatch",
+            "status": "FAIL",
+            "error": str(e)
+        })
+        print(f"  [FAIL] Setting details mismatch: {e}")
 
-    # Select setting
     setting_details.select_this_setting()
 
     # -------------------- DIAMOND PLP --------------------
+    logger.info("Step: Diamond PLP")
     plp_diamond_details = diamond_plp.get_diamond_details()
-
-    # Click on diamond to go to details page
     diamond_plp.click_product()
 
     # -------------------- DIAMOND DETAILS --------------------
+    logger.info("Step: Diamond Details")
     try:
         diamond_details.verify_diamond_details(plp_diamond_details)
-        print("Diamond details match between PLP and Details page.")
+        all_validations.append({
+            "step": "Diamond Details Match (PLP vs Details)",
+            "expected": str(plp_diamond_details),
+            "actual": "Matched",
+            "status": "PASS",
+            "error": ""
+        })
+        print("  [PASS] Diamond details match between PLP and Details page.")
     except AssertionError as e:
-        print(f"Diamond validation failed: {e}")
-        raise
+        all_validations.append({
+            "step": "Diamond Details Match (PLP vs Details)",
+            "expected": str(plp_diamond_details),
+            "actual": "Mismatch",
+            "status": "FAIL",
+            "error": str(e)
+        })
+        print(f"  [FAIL] Diamond details mismatch: {e}")
 
     # -------------------- COMPLETE PAGE --------------------
-    # After adding diamond to the ring, we verify the Complete page
+    logger.info("Step: Complete Page")
     diamond_details.add_diamond_to_ring()
 
-    time.sleep(6)  # Wait for the Complete page to load
+    complete.page.locator("div.price_box h2").wait_for(state="visible", timeout=15000)
+    complete.page.locator("div.prod_list_box").first.wait_for(state="visible", timeout=15000)
 
-    # Perform validation for Complete page
-    validate_complete_page(complete, plp_setting_details, plp_diamond_details)
+    complete_validations = _validate_complete_page(complete, plp_setting_details, plp_diamond_details)
+    all_validations.extend(complete_validations)
+
+    # -------------------- CART VALIDATION --------------------
+    logger.info("Step: Cart Validation")
+    cart_validations = _validate_cart(cart, plp_setting_details, plp_diamond_details)
+    all_validations.extend(cart_validations)
+
+    # -------------------- SUMMARY --------------------
+    _print_summary(all_validations)
+
+    failed = [v for v in all_validations if v["status"] == "FAIL"]
+    if failed:
+        pytest.fail(
+            f"{len(failed)} step(s) failed: {[v['step'] for v in failed]}",
+            pytrace=False
+        )
 
 
-def validate_complete_page(complete, plp_setting_details, plp_diamond_details):
-    """
-    Validate all details on the Complete page.
-    """
-    # Verify Stepper
+def _validate_complete_page(complete, plp_setting_details, plp_diamond_details):
+    """Run complete page validations, return list of result dicts."""
+    validations = []
+    print("\n=========== COMPLETE PAGE VALIDATION ===========")
+
+    # Stepper
     try:
         complete.verify_stepper(plp_setting_details, plp_diamond_details)
-        print("Stepper verification PASSED.")
-    except AssertionError as e:
-        print(f"Stepper verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Stepper", "expected": "Stepper correct",
+                            "actual": "Passed", "status": "PASS", "error": ""})
+        print("  [PASS] Stepper")
+    except Exception as e:
+        validations.append({"step": "Complete - Stepper", "expected": "Stepper correct",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Stepper: {e}")
 
-    # Verify Heading and Total Price
+    # Total price
     try:
         total_price, total_mrp = complete.verify_heading_and_total_price(
             plp_setting_details, plp_diamond_details
         )
-        print(f"Total price: {total_price}, Total MRP: {total_mrp}")
-    except AssertionError as e:
-        print(f"Heading and Total Price verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Total Price & MRP", "expected": "Prices match",
+                            "actual": f"Price={total_price} MRP={total_mrp}", "status": "PASS", "error": ""})
+        print(f"  [PASS] Total Price={total_price} MRP={total_mrp}")
+    except Exception as e:
+        total_price, total_mrp = "N/A", "N/A"
+        validations.append({"step": "Complete - Total Price & MRP", "expected": "Prices match",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Total Price: {e}")
 
-    # Verify Saved Amount
+    # Saved amount
     try:
         complete.verify_saved_amount(total_price, total_mrp)
-        print("Saved amount verification PASSED.")
-    except AssertionError as e:
-        print(f"Saved amount verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Saved Amount", "expected": "Saved amount correct",
+                            "actual": "Passed", "status": "PASS", "error": ""})
+        print("  [PASS] Saved Amount")
+    except Exception as e:
+        validations.append({"step": "Complete - Saved Amount", "expected": "Saved amount correct",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Saved Amount: {e}")
 
-    # Verify Setting Summary
+    # Setting summary
     try:
         complete.verify_setting_summary(plp_setting_details)
-        print("Setting summary verification PASSED.")
-    except AssertionError as e:
-        print(f"Setting summary verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Setting Summary", "expected": "Setting summary correct",
+                            "actual": "Passed", "status": "PASS", "error": ""})
+        print("  [PASS] Setting Summary")
+    except Exception as e:
+        validations.append({"step": "Complete - Setting Summary", "expected": "Setting summary correct",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Setting Summary: {e}")
 
-    # Verify Diamond Summary
+    # Diamond summary
     try:
         complete.verify_diamond_summary(plp_diamond_details)
-        print("Diamond summary verification PASSED.")
-    except AssertionError as e:
-        print(f"Diamond summary verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Diamond Summary", "expected": "Diamond summary correct",
+                            "actual": "Passed", "status": "PASS", "error": ""})
+        print("  [PASS] Diamond Summary")
+    except Exception as e:
+        validations.append({"step": "Complete - Diamond Summary", "expected": "Diamond summary correct",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Diamond Summary: {e}")
 
-    # Verify Ring Size Selection
+    # Ring size
     try:
         ring_size = complete.select_ring_size()
-        print(f"Ring size selected: {ring_size}")
-    except AssertionError as e:
-        print(f"Ring size verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Ring Size Selection", "expected": "Ring size selected",
+                            "actual": ring_size, "status": "PASS", "error": ""})
+        print(f"  [PASS] Ring Size: {ring_size}")
+    except Exception as e:
+        validations.append({"step": "Complete - Ring Size Selection", "expected": "Ring size selected",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Ring Size: {e}")
 
-    # Verify Shipment Date
+    # Shipment date
     try:
         shipment = complete.get_estimated_shipment()
-        print(f"Estimated shipment date: {shipment}")
-    except AssertionError as e:
-        print(f"Shipment date verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Estimated Shipment", "expected": "Shipment date present",
+                            "actual": shipment, "status": "PASS", "error": ""})
+        print(f"  [PASS] Shipment: {shipment}")
+    except Exception as e:
+        validations.append({"step": "Complete - Estimated Shipment", "expected": "Shipment date present",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Shipment: {e}")
 
-    # Optionally, Add to Bag
+    # Add to bag
     try:
         complete.add_to_bag()
-        print("Diamond added to bag successfully.")
-    except AssertionError as e:
-        print(f"Add to Bag verification failed: {e}")
-        raise
+        validations.append({"step": "Complete - Add to Bag", "expected": "Add to Bag clicked",
+                            "actual": "Success", "status": "PASS", "error": ""})
+        print("  [PASS] Add to Bag")
+    except Exception as e:
+        validations.append({"step": "Complete - Add to Bag", "expected": "Add to Bag clicked",
+                            "actual": "Failed", "status": "FAIL", "error": str(e)})
+        print(f"  [FAIL] Add to Bag: {e}")
+
+    return validations
+
+
+def _validate_cart(cart, plp_setting_details, plp_diamond_details):
+    """Validate quick cart after Add to Bag — cart opens automatically."""
+    print("\n=========== CART VALIDATION ===========")
+    overall, validations = cart.verify_quick_cart(
+        setting_details=plp_setting_details,
+        diamond_details=plp_diamond_details
+    )
+    return validations
+
+
+def _print_summary(validations):
+    total   = len(validations)
+    passed  = sum(1 for v in validations if v["status"] == "PASS")
+    failed  = sum(1 for v in validations if v["status"] == "FAIL")
+    skipped = sum(1 for v in validations if v["status"] == "SKIP")
+
+    print(f"\n{'='*55}")
+    print(f"  CHECKOUT FLOW SUMMARY")
+    print(f"  Total: {total} | PASS: {passed} | FAIL: {failed} | SKIP: {skipped}")
+    print(f"{'='*55}")
+    if failed:
+        print("  FAILED STEPS:")
+        for v in validations:
+            if v["status"] == "FAIL":
+                print(f"    - {v['step']}: {v['error']}")

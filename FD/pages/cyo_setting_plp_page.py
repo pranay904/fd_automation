@@ -6,6 +6,21 @@ class CYOSettingPLPPage:
     def __init__(self, page: Page):
         self.page = page
 
+    def normalize_product_name(self, name: str) -> str:
+        """Normalize product name by removing metal prefix and extra spaces."""
+        name = name.strip()
+
+        # Remove kt Gold patterns (10kt, 14kt, 18kt etc.)
+        name = re.sub(r'^\d+\s*kt\s+(White|Rose|Yellow)\s+Gold\s+', '', name, flags=re.IGNORECASE)
+
+        # Remove Platinum
+        name = re.sub(r'^Platinum\s+', '', name, flags=re.IGNORECASE)
+
+        # Clean extra spaces
+        name = re.sub(r'\s+', ' ', name)
+
+        return name.strip()
+
     def go_to(self):
         """Navigate to the CYO Ring Settings PLP page."""
         self.page.goto("https://friendlydiamonds.com/ring-settings")
@@ -23,25 +38,30 @@ class CYOSettingPLPPage:
             price_locator.wait_for(state="visible", timeout=10000)
             price_text = price_locator.inner_text().strip()
             price_parts = price_text.split()
-            price = price_parts[0]  # Selling price
+            price = price_parts[0]
             mrp = price_parts[1] if len(price_parts) > 1 else product_locator.locator(".plp_mrp_box").inner_text().strip()
             print(f"Price: {price}, MRP: {mrp}")
         except Exception as e:
             price, mrp = "Not found", "Not found"
             print(f"Error extracting price/MRP: {e}")
 
-        # Extract product name without "14kt White Gold" prefix
+        # ✅ FIXED PRODUCT NAME
         product_name_locator = product_locator.locator("h3.grid_view_mob_fs.mb-0")
         try:
             product_name_locator.wait_for(state="visible", timeout=10000)
             full_name = product_name_locator.inner_text().strip()
-            product_name = re.sub(r'^(14kt|18kt|Platinum)\s+(White|Rose|Yellow)\s+Gold\s+', '', full_name, flags=re.IGNORECASE)
-            print(f"Product Name: {product_name}")
+
+            # Apply normalization
+            product_name = self.normalize_product_name(full_name)
+
+            print(f"Full Name: {full_name}")
+            print(f"Normalized Name: {product_name}")
+
         except Exception as e:
             product_name = "Not found"
             print(f"Error extracting product name: {e}")
 
-        # Extract active metal color (normalize to white/rose/yellow)
+        # Extract active metal color
         active_metal_color = None
         try:
             for metal in product_locator.locator(".metal_color .metal_box").all():
