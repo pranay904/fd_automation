@@ -45,7 +45,7 @@ class CYOSettingPLPPage:
             price, mrp = "Not found", "Not found"
             print(f"Error extracting price/MRP: {e}")
 
-        # ✅ FIXED PRODUCT NAME
+        # FIXED PRODUCT NAME
         product_name_locator = product_locator.locator("h3.grid_view_mob_fs.mb-0")
         try:
             product_name_locator.wait_for(state="visible", timeout=10000)
