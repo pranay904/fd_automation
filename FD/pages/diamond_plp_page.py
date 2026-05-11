@@ -7,11 +7,19 @@ class DiamondPLPPage:
         self.page = page
 
     def get_diamond_details(self):
+        # Wait until basic page loads
+        self.page.wait_for_load_state("domcontentloaded")
 
+        # Wait until diamond card appears
         diamond_locator = self.page.locator(
-            "(//div[@class='diam_block col-lg-3 col-md-4 col-6'])[2]"
+            "(//div[contains(@class,'diam_block')])[2]"
         )
-        diamond_locator.wait_for(state="visible", timeout=10000)
+
+        diamond_locator.wait_for(state="visible")
+
+        print("  [PASS] Diamond product loaded")
+
+        # continue logic...
 
         # TITLE
         raw_title = diamond_locator.locator(".diam_details .title").inner_text().strip()

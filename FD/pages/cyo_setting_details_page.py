@@ -38,7 +38,7 @@ class CYOSettingDetailsPage:
             mrp = "Not found"
         print(f"Details MRP: {mrp}")
 
-        # ✅ FIXED Product Name
+        # FIXED Product Name
         try:
             full_name = self.page.locator(".font-active.mb-3").inner_text().strip()
 

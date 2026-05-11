@@ -175,13 +175,26 @@ class ShoppingBag(BasePage):
             print("ACTUAL:", title)
 
             # -------------------------------------------------
-            # USE COMPLETE PAGE DATA (NOT PLP)
+            # PARSE EXPECTED CARAT/SHAPE FROM AVAILABLE KEYS
+            # Supports both PLP dict (title, price, mrp)
+            # and complete page dict (diamond_carat, diamond_shape)
             # -------------------------------------------------
 
-            expected_carat = diamond.get("diamond_carat")
-            expected_shape = diamond.get("diamond_shape")
-            expected_price = diamond.get("diamond_price")
-            expected_mrp = diamond.get("diamond_mrp")
+            # Try direct keys first, then parse from title
+            raw_title_expected = diamond.get("title", "")
+
+            expected_carat = (
+                diamond.get("carat")
+                or diamond.get("diamond_carat")
+                or (re.search(r"\d+\.\d+", raw_title_expected).group(0) if re.search(r"\d+\.\d+", raw_title_expected) else "")
+            )
+            expected_shape = (
+                diamond.get("shape")
+                or diamond.get("diamond_shape")
+                or (re.search(r"(oval|round|emerald|princess|pear|cushion|asscher|marquise)", raw_title_expected, re.IGNORECASE).group(1) if re.search(r"(oval|round|emerald|princess|pear|cushion|asscher|marquise)", raw_title_expected, re.IGNORECASE) else "")
+            )
+            expected_carat = str(expected_carat) if expected_carat else ""
+            expected_shape = str(expected_shape) if expected_shape else ""
 
             # ---------------- PARSE UI ----------------
             parsed = self.parse_diamond_title(title)
@@ -194,12 +207,16 @@ class ShoppingBag(BasePage):
 
             # ---------------- VALIDATIONS ----------------
 
-            if expected_carat == actual_carat:
-                results.append(log_pass("Bag - Diamond Carat", expected_carat, actual_carat))
-            else:
-                results.append(log_fail("Bag - Diamond Carat", expected_carat, actual_carat))
+            # Normalize expected_carat to just the number e.g. "1.01 Ct." -> "1.01"
+            carat_num_match = re.search(r"\d+\.\d+", expected_carat)
+            expected_carat_num = carat_num_match.group(0) if carat_num_match else expected_carat
 
-            if expected_shape.lower() == (actual_shape or "").lower():
+            if expected_carat_num and expected_carat_num == (actual_carat or ""):
+                results.append(log_pass("Bag - Diamond Carat", expected_carat_num, actual_carat))
+            else:
+                results.append(log_fail("Bag - Diamond Carat", expected_carat_num, actual_carat))
+
+            if expected_shape and expected_shape.lower() == (actual_shape or "").lower():
                 results.append(log_pass("Bag - Diamond Shape", expected_shape, actual_shape))
             else:
                 results.append(log_fail("Bag - Diamond Shape", expected_shape, actual_shape))
@@ -344,3 +361,38 @@ class ShoppingBag(BasePage):
             )
 
         return results
+    # -------------------- CLICK CONTINUE TO PAYMENT --------------------
+    def click_continue_to_payment(self):
+        """
+        Clicks on CONTINUE TO PAYMENT button after all validations pass
+        """
+
+        step_name = "Bag - Continue To Payment"
+
+        try:
+            continue_btn = self.page.get_by_role(
+                "button",
+                name="CONTINUE TO PAYMENT"
+            ).first
+
+            continue_btn.wait_for(state="visible", timeout=10000)
+
+            continue_btn.click()
+
+            print(f"  [PASS] {step_name} — Clicked CONTINUE TO PAYMENT")
+
+            return log_pass(
+                step_name,
+                "CONTINUE TO PAYMENT button should be clicked",
+                "Clicked successfully"
+            )
+
+        except Exception as e:
+            return log_fail(
+                step_name,
+                "CONTINUE TO PAYMENT button visible",
+                "Button not clicked",
+                e
+            )
+
+

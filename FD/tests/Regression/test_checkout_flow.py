@@ -12,6 +12,7 @@ from FD.pages.diamond_plp_page import DiamondPLPPage
 from FD.pages.diamond_details_page import DiamondDetailsPage
 from FD.pages.cyor_complete_page import CompletePage
 from FD.pages.cart_page import CartPage
+from FD.pages.payment_page import PaymentPage
 from FD.pages.shopping_page import ShoppingBag
 
 from FD.utils.retry import retry_on_failure
@@ -188,6 +189,97 @@ def test_setting_and_diamond_details_match(pages):
             complete_data.get("total_mrp", "")
         )
     )
+
+    # ============================================================
+    # STEP 8 : CONTINUE TO PAYMENT
+    # ============================================================
+
+    print("\n========== STEP 8: CONTINUE TO PAYMENT ==========")
+
+    continue_result = shopping_bag.click_continue_to_payment()
+
+    all_results.append(continue_result)
+
+    # ============================================================
+    # STEP 9 : CHECKOUT ADDRESS PAGE
+    # ============================================================
+
+    print("\n========== STEP 9: CHECKOUT ADDRESS PAGE ==========")
+
+    from FD.pages.checkout_address_page import CheckoutAddress
+
+    checkout_address = CheckoutAddress(shopping_bag.page)
+
+    # ---------- VERIFY PAGE ----------
+
+    all_results.append(
+        checkout_address.verify_title()
+    )
+
+    # ---------- DISMISS POPUP ----------
+
+    all_results.append(
+        checkout_address.dismiss_modal()
+    )
+
+    # ---------- FILL ADDRESS ----------
+
+    all_results.append(
+        checkout_address.create_account_and_fill_details()
+    )
+
+    # ---------- PROCEED TO PAYMENT ----------
+    # ---------- PROCEED TO PAYMENT ----------
+
+    all_results.append(
+        checkout_address.click_proceed_to_payment()
+    )
+
+    # ============================================================
+    # STEP 10 : PAYMENT PAGE
+
+    print("\n========== STEP 10: PAYMENT PAGE ==========")
+
+
+    payment_page = PaymentPage(
+        shopping_bag.page
+    )
+
+    # ------------------------------------------------------------
+    # VERIFY PAYMENT PAGE TITLE
+    # ------------------------------------------------------------
+
+    print("\n========== VERIFY PAYMENT PAGE TITLE ==========")
+
+    payment_title_result = (
+        payment_page.verify_title()
+    )
+
+    all_results.append(
+        payment_title_result
+    )
+
+    # ------------------------------------------------------------
+    # VERIFY BANK WIRE PRICE
+    # ------------------------------------------------------------
+
+    print("\n========== VERIFY BANK WIRE PRICE ==========")
+
+    payment_price_result = (
+        payment_page.verify_bank_wire_price(
+            complete_data.get("total_price", "")
+        )
+    )
+
+    all_results.append(
+        payment_price_result
+    )
+
+    # ============================================================
+    # FINAL SUMMARY
+    # ============================================================
+
+    print_summary(all_results)
 
     # ============================================================
     # FINAL SUMMARY
@@ -454,6 +546,8 @@ def verify_complete_page(
     return results, data
 
 
+
+
 def print_summary(all_results):
 
     total_steps = len(all_results)
@@ -494,3 +588,15 @@ def print_summary(all_results):
                 print(f"ACTUAL   : {result['actual']}")
                 print(f"ERROR    : {result['error']}")
                 print()
+
+
+
+
+
+
+
+
+
+
+
+

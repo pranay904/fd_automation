@@ -1,24 +1,8 @@
-"""
-cart_page.py
-------------
-CONCEPT: Page Object Model (POM)
-WHY: We keep all cart-related actions in ONE file (this file).
-     The test file does not know HOW to click buttons — it just calls
-     methods like verify_quick_cart(). This makes tests easy to maintain.
-     If the website changes a button, we only fix it here, not in every test.
 
-CONCEPT: Inheritance (class CartPage inherits from BasePage)
-WHY: BasePage already has common browser actions (click, fill, goto).
-     By inheriting, CartPage gets all those for free without rewriting them.
-"""
 
-import re                              # CONCEPT: Standard Library Module
-                                       # WHY: 're' gives us Regular Expressions
-                                       # to find patterns in text (e.g. find "$915" in a sentence)
+import re
 
-from FD.pages.base_page import BasePage  # CONCEPT: Inheritance / Import
-                                          # WHY: BasePage has self.page (the browser tab)
-                                          # CartPage inherits it so we can use self.page here too
+from FD.pages.base_page import BasePage
 
 
 # -----------------------------------------------------------------------
