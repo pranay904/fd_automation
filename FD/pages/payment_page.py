@@ -261,6 +261,24 @@ class PaymentPage(BasePage):
 
                 print("  [PASS] Final amount matched")
 
+                # ==========================================================
+                # STEP 8 : CLICK PAY NOW
+                # ==========================================================
+
+                pay_now_btn = self.page.get_by_role(
+                    "button",
+                    name="PAY NOW"
+                ).first
+
+                pay_now_btn.wait_for(
+                    state="visible",
+                    timeout=10000
+                )
+
+                pay_now_btn.click()
+
+                print("  [INFO] PAY NOW button clicked")
+
                 return log_pass(
                     step_name,
                     f"${final_expected_total}",
