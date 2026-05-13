@@ -5,10 +5,10 @@ from playwright.sync_api import sync_playwright
 
 @pytest.fixture(scope="function")
 def page(request):
-    # Chromium only, headless=True for speed
+    # Chromium only, maximized window
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context(viewport={"width": 1280, "height": 800})
+    browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+    context = browser.new_context(no_viewport=True)
     # Block Netcore overlay before any page loads
     context.add_init_script("""
         const _block = () => {

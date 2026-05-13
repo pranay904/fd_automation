@@ -5,32 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa347c3-eb55-4b97-88e4-7a4cd91d0934" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FD/pages/forms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FD/pages/login/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/components/base_form_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/components/base_form_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/config/credentials.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FD/config/credentials.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/Gemologist_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/Gemologist_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/bespoke_jewlery.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/bespoke_jewlery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/contact_us_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/contact_us_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FD/pages/shopping_bag_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FD/pages/cyo_setting_plp_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cyo_setting_plp_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/drop_a_hint_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/forms/drop_a_hint_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/home_page_ele.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/home_page_ele.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/login/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/login/register_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/test_data/media/images (1).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/FD/test_data/media/images.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/Regression/test_preset_all_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Regression/test_preset_all_filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_bespoke_jewelry.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_bespoke_jewelry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_contact_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_contact_us.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_drop_hint.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_drop_hint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/Sanity/test_gemologist.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Sanity/test_gemologist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/test_home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_home_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/test_preset.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_preset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/test_register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/utils/cyo_normalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/cyo_normalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/utils/json_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/utils/json_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/cyor_complete_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cyor_complete_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/Regression/test_checkout_flow.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/Regression/test_checkout_flow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,57 +37,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.Regression.test_checkout_flow.test_checkout_flow.executor": "Run",
-    "Python tests.Python tests for tests.Regression.test_checkout_flow.test_product_details_match.executor": "Run",
-    "Python tests.Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting.executor": "Run",
-    "Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters.executor": "Run",
-    "Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters_with_pdp.executor": "Run",
-    "Python tests.Python tests for tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor": "Run",
-    "Python tests.Python tests for tests.Sanity.test_contact_us.test_contact_us_form.executor": "Run",
-    "Python tests.Python tests for tests.Sanity.test_drop_hint.test_drop_hint.executor": "Run",
-    "Python tests.Python tests for tests.demo.test_run.executor": "Run",
-    "Python tests.Python tests for tests.test_home_page.test_home_page.executor": "Run",
-    "Python tests.Python tests for tests.test_login.test_login_user_Used_Credentails.executor": "Run",
-    "Python tests.Python tests for tests.test_preset.test_presetFilter.executor": "Run",
-    "Python tests.Python tests for tests.test_preset.test_preset_filter.executor": "Run",
-    "Python tests.Python tests for tests.test_preset_filters.TestPresetFilters.test_apply_filters.executor": "Run",
-    "Python tests.Python tests for tests.test_preset_filters.test_apply_filters.executor": "Run",
-    "Python tests.Python tests for tests.test_preset_filters.test_preset_filters.executor": "Run",
-    "Python tests.Python tests for tests.test_register.test_close_popup_if_present.executor": "Run",
-    "Python tests.Python tests for tests.test_register.test_login_user.executor": "Run",
-    "Python tests.Python tests for tests.test_register.test_register_user.executor": "Run",
-    "Python tests.Python tests in test_checkout_flow.py.executor": "Run",
-    "Python tests.Python tests in test_register.py.executor": "Run",
-    "Python tests.pytest for FD.tests.Regression.test_checkout_flow.test_setting_and_diamond_details_match.executor": "Run",
-    "Python tests.pytest for FD.tests.Regression.test_preset_all_filters.test_preset_filters.executor": "Run",
-    "Python tests.pytest for FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor": "Run",
-    "Python tests.pytest for FD.tests.Sanity.test_contact_us.test_contact_us_form.executor": "Run",
-    "Python tests.pytest for FD.tests.Sanity.test_drop_hint.test_drop_hint.executor": "Run",
-    "Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails.executor": "Run",
-    "Python tests.pytest for FD.tests.test_register.test_register_user.executor": "Run",
-    "Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order.executor": "Run",
-    "Python.register.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "update-gitignore-and-config",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/DELL/python_automation/Fd_Functional_Tets/test_data",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_checkout_flow.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_product_details_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_checkout_flow.test_setting_details_select_this_setting.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Regression.test_preset_all_filters.test_preset_filters_with_pdp.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_contact_us.test_contact_us_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.Sanity.test_drop_hint.test_drop_hint.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.demo.test_run.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_home_page.test_home_page.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_login.test_login_user_Used_Credentails.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset.test_presetFilter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset.test_preset_filter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.TestPresetFilters.test_apply_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.test_apply_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_preset_filters.test_preset_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_close_popup_if_present.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_login_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_register.test_register_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_checkout_flow.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_register.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.Regression.test_checkout_flow.test_setting_and_diamond_details_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.Regression.test_preset_all_filters.test_preset_filters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.Sanity.test_bespoke_jewelry.test_bespoke_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.Sanity.test_contact_us.test_contact_us_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.Sanity.test_drop_hint.test_drop_hint.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for FD.tests.test_register.test_register_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order.executor&quot;: &quot;Run&quot;,
+    &quot;Python.register.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;checkout__flow&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL/python_automation/Fd_Functional_Tets/test_data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\test_data" />
