@@ -3,9 +3,9 @@ from pathlib import Path
 
 # BASE SITE URLS
 
-BASE_URL = "https://friendlydiamonds.com/"
+BASE_URL = "https://ap-diam.com/"
 
-REGISTER_URL = "https://friendlydiamonds.com/register"
+REGISTER_URL = "https://ap-diam.com/register"
 LOGIN_URL = "https://friendlydiamonds.com/login"
 
 CYO_R_URL = "https://friendlydiamonds.com/ring-settings"  # CYO Ring Settings URL

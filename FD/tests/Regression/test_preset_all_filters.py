@@ -24,7 +24,7 @@ def test_preset_filters(page, data):
         print(f"Skipping {data.get('TC_ID')} – no filter values")
         return
 
-    print(f"\n🔹 Executing {data.get('TC_ID')} - {filter_type}")
+    print(f"\n Executing {data.get('TC_ID')} - {filter_type}")
 
     if filter_type.lower() == "mix":
         preset.apply_verify_mixed_filters(filter_values)
