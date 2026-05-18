@@ -1,7 +1,7 @@
 import pytest
-from pages.all_preset_page import PresetPage
-from utils.excel_reader import read_excel
-from utils.config import PRESET_FILTER_EXCEL
+from FD.pages.all_preset_page import PresetPage
+from FD.utils.excel_reader import read_excel
+from FD.utils.config import PRESET_FILTER_EXCEL
 
 # Read test data from Excel
 TEST_DATA = read_excel(PRESET_FILTER_EXCEL, "PresetFilters")

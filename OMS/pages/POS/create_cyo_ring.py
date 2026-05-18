@@ -1,6 +1,6 @@
 import time
 
-from pages.POS.base_pos import BasePOS
+from OMS.pages.POS.base_pos import BasePOS
 
 class CreateCYOOrderPOS:
     def __init__(self, page):
@@ -77,7 +77,7 @@ class CreateCYOOrderPOS:
 
         # Select second option
         suggestions.nth(1).click()
-        time.sleep(4)
+        time.sleep(1)
 
         # Click ADD button dynamically
         add_button = self.page.get_by_role("button", name="ADD")

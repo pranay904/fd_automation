@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 
-from utils.json_reader import read_json_file, file_path
-from utils.config import LOGIN_URL
+from FD.utils.json_reader import read_json_file, file_path
+from FD.utils.config import LOGIN_URL
 
 class LoginPage:
 

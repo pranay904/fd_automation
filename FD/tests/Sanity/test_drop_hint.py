@@ -1,7 +1,7 @@
 import time
 
-from pages.drop_a_hint_page import DropHint
-from utils.yaml_loader import load_yaml
+from FD.pages.forms.drop_a_hint_page import DropHint
+from FD.utils.yaml_loader import load_yaml
 
 def test_drop_hint(page):
 
@@ -14,7 +14,7 @@ def test_drop_hint(page):
     drop_hint.open_Base_url()
 
     # verify the drop a hint on pdp
-    drop_hint.naviagate_to_pdp()
+    drop_hint.navigate_to_pdp()
 
     #  validate the form
     drop_hint.drop_hint_all_fields(
@@ -25,9 +25,11 @@ def test_drop_hint(page):
         message=data["product_name"]
     )
 
+    time.sleep(10)
+
     drop_hint.submit_gemo_drop_hint_form()
 
-    time.sleep(6)
+    time.sleep(10)
 
     # drop_hint.fill_name(creds["name"])
     # drop_hint.fill_email(creds["email"])

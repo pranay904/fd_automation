@@ -33,8 +33,8 @@ class BasePOS:
         "In_Stock":self.page.get_by_role("button", name="In Stock"),
         "Cyo":self.page.get_by_role("button", name="Cyo"),
         "Cyo_Ring": self.page.get_by_role("button", name="Ring", exact=True),
-        "Cyo_Pendant":self.page.get_by_role("button", name="PENDANT"),
-        "Cyo_Earring":self.page.get_by_role("button", name="EARRING"),
+        "Cyo_Pendant":self.page.get_by_role("button", name="Pendant", exact=True),
+        "Cyo_Earring":self.page.get_by_role("button", name="Earring", exact=True),
         "Diamond":self.page.get_by_role("button", name="DIAMOND"),
         "Preset":self.page.get_by_role("button", name="PRESET"),
         "Jewelry":self.page.get_by_role("button", name="JEWELRY")

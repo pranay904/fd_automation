@@ -152,14 +152,18 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
+# PyCharm / IntelliJ IDEA
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be added to the global gitignore or merged into this project gitignore.
-#  For PyCharm Community Edition, use 'PyCharm CE' instead of 'PyCharm'.
-FD/.idea/
+.idea/
+*.iml
+*.iws
+*.ipr
 
 # Test reports and screenshots
 reports/
+FD/reports/
+OMS/reports/
 test-results/
 allure-results/
 allure-reports/
@@ -181,7 +185,19 @@ logs/
 config.ini
 secrets.json
 .secrets
+credentials.yaml
+**/config/credentials.yaml
 
 # Browser profiles and cache
 browser-profiles/
 .browser-cache/
+
+# Virtual environments (project specific)
+FD/venv/
+OMS/venv/
+
+# Test data (if contains sensitive info)
+# Uncomment if needed
+# test_data/
+# FD/test_data/
+# OMS/test_data/

@@ -1,4 +1,4 @@
-from utils.config import BASE_LOCAL
+from OMS.utils.config import BASE_LOCAL
 
 class LoginPage:
     def __init__(self, page):

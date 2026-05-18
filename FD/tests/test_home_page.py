@@ -1,6 +1,6 @@
-from pages.home_page_ele import Guest
+from FD.pages.home_page_ele import Guest
 
-from pages.base_page import BasePage
+from FD.pages.base_page import BasePage
 
 def test_home_page(page):
 

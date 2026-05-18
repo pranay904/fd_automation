@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from OMS.pages.login_page import LoginPage
@@ -7,6 +9,8 @@ from OMS.pages.order_status_update.ReturnRequestedStatus import ReturnRequestedS
 from OMS.pages.order_status_update.ReturnStatus import ReturnStatus
 from OMS.pages.order_status_update.cancelled_status import CancelledStatus
 from OMS.pages.order_status_update.delivered_status import DeliveredStatus
+from OMS.pages.order_status_update.preset_ring_edit_product_details import EditProduct
+from OMS.pages.order_status_update.order_line_update import AddDiamondLines
 from OMS.pages.order_status_update.orderstatusbase import OrderStatusBase
 from OMS.pages.order_status_update.shipped_status import ShippedStatus
 from OMS.utils.json_reader import get_login_user
@@ -16,10 +20,22 @@ from OMS.utils.json_reader import get_login_user
 # Generic login function
 # -------------------------------
 def login(page):
+
+    # If already on dashboard, skip login
+    if "frontendoms.ap-diam.com" in page.url and "login" not in page.url:
+        print("Already logged in — skipping login")
+        return
+
     login_page = LoginPage(page)
     login_page.open_login_page()
+
     login_data = get_login_user()
     login_page.login(login_data["email"], login_data["password"])
+
+    # Wait until dashboard loads properly
+    page.wait_for_load_state("networkidle")
+
+
 
 # -------------------------------
 # Base order navigation
@@ -30,18 +46,17 @@ def open_order_status_update(page):
     order_status.click_on_order_status_update()
     return order_status
 
-# -------------------------------
 # Test: Cancelled status
-# -------------------------------
+
 def test_cancelled_status(page):
     login(page)
     open_order_status_update(page)
     status = CancelledStatus(page)
     status.select()
 
-# -------------------------------
 # Test: Shipped status
-# -------------------------------
+
+
 def test_shipped_status(page):
     login(page)
     open_order_status_update(page)
@@ -90,3 +105,102 @@ def test_return_staus(page):
     open_order_status_update(page)
     status = ReturnStatus(page)
     status.select()
+
+
+def test_add_diamond_line(page):
+
+    login(page)
+    time.sleep(1)
+
+    update = AddDiamondLines(page)
+    update.open_all_order_line()
+
+    update.add_diamond_line()
+
+
+
+def test_update_product_size(page):
+
+    login(page)
+
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_product_form()
+    edit_product.update_size()
+    edit_product.handle_size_modal()
+
+
+def test_update_mount_and_other_details(page):
+
+    login(page)
+
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(3)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_product_form()
+    edit_product.update_mount()
+    edit_product.update_product_details()
+
+
+
+def test_add_product_note(page):
+
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+
+    edit_product.add_product_note()
+
+
+def test_update_product_status(page):
+
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_product_status()
+
+def test_update_manufacture(page):
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_manufacture()
+
+
+def test_update_setting_status(page):
+    login(page)
+    edit_product = EditProduct(page)
+    edit_product.open_all_order_line()
+    time.sleep(2)
+    edit_product.preset_product()
+    time.sleep(2)
+    edit_product.edit_setting_status()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

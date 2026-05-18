@@ -1,4 +1,4 @@
-from pages.preset_page import Preset
+from FD.pages.preset_page import Preset
 
 
 def test_preset_filter(page):
