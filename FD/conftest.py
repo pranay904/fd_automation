@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 def page(request):
     # Chromium only, maximized window
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+    browser = playwright.chromium.launch(headless=True, args=["--start-maximized"])
     context = browser.new_context(no_viewport=True)
     # Block Netcore overlay before any page loads
     context.add_init_script("""

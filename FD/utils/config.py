@@ -3,9 +3,9 @@ from pathlib import Path
 
 # BASE SITE URLS
 
-BASE_URL = "https://friendlydiamonds.com/"
+BASE_URL = "https://ap-diam.com/"
 
-REGISTER_URL = "https://friendlydiamonds.com/register"
+REGISTER_URL = "https://ap-diam.com/register"
 LOGIN_URL = "https://friendlydiamonds.com/login"
 
 CYO_R_URL = "https://friendlydiamonds.com/ring-settings"  # CYO Ring Settings URL
@@ -34,5 +34,5 @@ FCI_quiz= "https://friendlydiamonds.com/fci/engagement-ring-quiz"
 
 file_path = Path("FD/test_data/media/images.jpg").resolve()
 
-DATA_DIR = os.path.join("test_data")  # <-- updated folder name
+DATA_DIR = os.path.join("FD/test_data")  # <-- updated folder name
 PRESET_FILTER_EXCEL = os.path.join(DATA_DIR, "preset_filter_testcases.xlsx")

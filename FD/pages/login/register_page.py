@@ -50,10 +50,6 @@ class RegisterPage:
         self.page.wait_for_timeout(10000)
         time.sleep(10)
 
-
-
-        return self.email  # Return email for login test
-
     # ---------------- Logout ----------------
     def logout_user(self, hasText=None):
         """Click profile and logout"""
