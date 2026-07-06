@@ -10,7 +10,7 @@ class PDPValidator(BaseFilters):
     PDP_CARAT = "//label[contains(text(),'Diamond carat')]/following-sibling::span"
     PDP_STYLE = "//h5[contains(@class,'title_h5')]"
 
-    All_PLP = "//*[@class='mob_mod']";
+    All_PLP = "//*[@class='mob_mod']"
 
     def validate_pdp(self, expected: dict, plp_price: str):
         pdp_price = self.page.locator(self.PDP_PRICE).text_content().strip()
