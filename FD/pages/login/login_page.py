@@ -28,6 +28,16 @@ class LoginPage:
             self.page.get_by_role("heading", name="My account")
         ).to_have_text("My account")
 
+    def login_with_credentials(self, email: str, password: str):
+        """Login with given email and password — used by TC-002."""
+        self.page.locator("div[class='col-md-6 col-lg-5 mx-auto'] div input[name='email']").fill(email)
+        self.page.locator("div[class='col-md-6 col-lg-5 mx-auto'] div form div[class='row'] div[class='col-md-12'] div input[name='password']").fill(password)
+        self.page.locator(
+            "div[class='col-md-6 col-lg-5 mx-auto'] button[type='submit']"
+        ).click()
+        self.page.wait_for_timeout(5000)
+        print(f"[INFO] Logged in as {email}")
+
     def close_popup_if_present(self):
         pass
 

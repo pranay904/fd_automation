@@ -32,7 +32,8 @@ from FD.pages.cart_marge_pages.checkout_page import CheckoutPage
 from FD.pages.login.register_page import RegisterPage
 
 
-def test_TC_FD_CART_001(page):
+def test_TC_FD_CART_001(shared_page):
+    page = shared_page
 
     home     = HomePage(page)
     listing  = Listing(page)
@@ -114,6 +115,9 @@ def test_TC_FD_CART_001(page):
     # ------------------------------------------------------------------
     register.register_user()
 
+    # Save credentials for TC-002
+
+
     # ------------------------------------------------------------------
     # Step 11 — After signup: open quick cart via navbar icon
     #            Check count using //h2[@class='font-active mb-0']
@@ -128,10 +132,25 @@ def test_TC_FD_CART_001(page):
     )
     print(f"[PASS] Quick cart count (post-signup / merged) = {quick_count_merged}")
 
+    from FD.tests.cart_marge.shared_cart_data import save
+
+    save(
+        email=register.email,
+        password=register.email,  # FD password = email
+        cart_count=quick_count_merged
+    )
+
+    print("[INFO] Registration details saved for TC-002")
+
     # ------------------------------------------------------------------
     # Step 12 — Click Checkout from quick cart → assert no error
     # ------------------------------------------------------------------
     quick.click_checkout()
+
+    # Check for invalid cart identifier popup — if visible, test fails
+    invalid_cart_popup = page.locator("//div[@class='modal_body modal_sm']")
+    if invalid_cart_popup.is_visible():
+        pytest.fail("[FAIL] Invalid cart identifier error popup is displayed — cart merge failed")
 
     current_url = page.url
     page_body   = page.locator("body").inner_text().lower()

@@ -57,9 +57,7 @@ class CartPage(BasePage):
     # ----------------------------------------------------------------
 
     def navigate_to_signup(self):
-        """
-        Click the login icon → login page → click Sign Up → register page.
-        """
+        """Click login icon → login page → click Sign Up → register page."""
         self.page.locator(CartLocators.LOGIN_ICON).wait_for(state="visible", timeout=10000)
         self.click(CartLocators.LOGIN_ICON)
         self.page.wait_for_load_state("load")
@@ -70,6 +68,14 @@ class CartPage(BasePage):
         self.page.wait_for_load_state("load")
         self.page.locator("//input[@name='first_name']").wait_for(state="visible", timeout=10000)
         print("[INFO] Clicked Sign Up — on Register page")
+
+    def navigate_to_login(self):
+        """Click login icon → land on login page (for TC-002 login flow)."""
+        self.page.locator(CartLocators.LOGIN_ICON).wait_for(state="visible", timeout=10000)
+        self.click(CartLocators.LOGIN_ICON)
+        self.page.wait_for_load_state("load")
+        self.page.locator("//input[@name='email']").wait_for(state="visible", timeout=10000)
+        print("[INFO] Clicked Login icon — on Login page")
 
     # ----------------------------------------------------------------
     # Checkout

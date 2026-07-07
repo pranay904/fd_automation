@@ -48,13 +48,57 @@ def page(request):
         pass
 
 
+# Session-scoped page for cart_marge tests — keeps same browser across TC-001 and TC-002
+@pytest.fixture(scope="session")
+def shared_page():
+    playwright = sync_playwright().start()
+    browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+    context = browser.new_context(no_viewport=True)
+    context.add_init_script("""
+        const _block = () => {
+            const style = document.createElement('style');
+            style.id = '__block_netcore__';
+            style.textContent = `
+                #smt-overlay, #st_notification_banner, div[smtmsgid],
+                [id^='smt'], [class*='smt-block'], [class*='smt-close'] {
+                    display: none !important;
+                    pointer-events: none !important;
+                    visibility: hidden !important;
+                    z-index: -9999 !important;
+                }
+            `;
+            if (!document.getElementById('__block_netcore__')) {
+                (document.head || document.documentElement).appendChild(style);
+            }
+        };
+        _block();
+        new MutationObserver(_block).observe(document.documentElement, {childList: true, subtree: true});
+    """)
+    pg = context.new_page()
+
+    yield pg
+
+    try:
+        context.close()
+    except Exception:
+        pass
+    try:
+        browser.close()
+    except Exception:
+        pass
+    try:
+        playwright.stop()
+    except Exception:
+        pass
+
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call=None):
     outcome = yield
     report = outcome.get_result()
 
     if report.when == "call" and report.failed:
-        pg = item.funcargs.get("page")
+        pg = item.funcargs.get("page") or item.funcargs.get("shared_page")
         if pg:
             base_dir = os.path.dirname(os.path.abspath(__file__))
             screenshots_dir = os.path.join(base_dir, "reports", "screenshots")
