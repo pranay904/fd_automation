@@ -1,11 +1,14 @@
 from FD.pages.base_page import BasePage
 from FD.locators.cart_locators import CartLocators
+from utils.cart_count import CartCount
 
 
 class CartPage(BasePage):
 
     def __init__(self, page):
         super().__init__(page)
+
+        self.cart_count = CartCount(page)
 
     # ----------------------------------------------------------------
     # Popup dismissal — must be called first on the cart/bag page
@@ -87,3 +90,11 @@ class CartPage(BasePage):
         self.click(CartLocators.CONTINUE_TO_PAYMENT)
         self.page.wait_for_load_state("load")
         print("[INFO] Clicked Checkout / Continue to Payment")
+
+    def get_cart_page_count(self):
+
+        return self.cart_count.get_cart_page_count(
+            CartLocators.CART_COUNT_SPAN
+        )
+
+

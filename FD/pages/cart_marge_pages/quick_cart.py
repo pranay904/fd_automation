@@ -1,9 +1,18 @@
 from FD.pages.base_page import BasePage
 from FD.locators.quick_cart_locators import QuickCartLocators
 from FD.locators.cart_locators import CartLocators
+from utils.cart_count import CartCount
 
 
 class QuickCartPage(BasePage):
+
+    def __init__(self, page):
+
+        super().__init__(page)
+
+        self.cart_count = CartCount(page)
+
+
 
     def is_open(self):
         """
@@ -87,3 +96,9 @@ class QuickCartPage(BasePage):
         self.click(QuickCartLocators.CHECKOUT)
         self.page.wait_for_load_state("load")
         print("[INFO] Clicked Checkout from Quick Cart")
+
+    def get_quick_cart_count_two(self, logged_in=False):
+
+        return self.cart_count.get_quick_cart_count(
+            QuickCartLocators.CART_COUNT
+        )

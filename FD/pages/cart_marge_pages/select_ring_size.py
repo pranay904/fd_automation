@@ -1,6 +1,12 @@
+
+
 class SelectRingSize:
 
+    def __init__(self, page):
+        self.page = page
+
     def select_ring_size(self):
+
         print("\n===== SELECTING RING SIZE =====")
 
         # Scroll to the ring size dropdown trigger

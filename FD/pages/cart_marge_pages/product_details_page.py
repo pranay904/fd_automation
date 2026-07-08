@@ -4,11 +4,15 @@ from FD.pages.base_page import BasePage
 from FD.locators.product_locators import ProductLocators
 from FD.pages.cart_marge_pages.select_ring_size import SelectRingSize
 
+from FD.utils.cart_count import CartCount
+
 
 class ProductDetailsPage(BasePage, SelectRingSize):
 
     def __init__(self, page: Page):
         super().__init__(page)
+
+        self.cart_count = CartCount(page)
 
         self.eternity_product_name = ""
         self.eternity_product_price = ""
@@ -70,8 +74,9 @@ class ProductDetailsPage(BasePage, SelectRingSize):
     def add_to_cart(self):
         """Scroll to Add to Bag button, click it, then wait until quick cart count updates to > 0."""
         btn = self.page.locator(ProductLocators.ADD_TO_CART).first
-        btn.wait_for(state="visible", timeout=15000)
         btn.scroll_into_view_if_needed()
+        btn.wait_for(state="visible")
+
         self.page.wait_for_timeout(800)
         btn.click()
         print("[INFO] Add to Cart clicked — waiting for cart to update...")
@@ -132,3 +137,10 @@ class ProductDetailsPage(BasePage, SelectRingSize):
     def add_eternity_product_to_cart(self):
         self.select_ring_size()
         self.click(ProductLocators.ADD_TO_CART)
+
+    def get_pdp_cart_count(self):
+        """
+        PDP quick cart count after Add To Cart
+        """
+
+        return self.cart_count.get_pdp_cart_count()

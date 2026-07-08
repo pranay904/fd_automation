@@ -1,12 +1,17 @@
+from playwright.sync_api import Page
+
 from FD.pages.base_page import BasePage
 from FD.locators.home_locators import HomeLocators
 from FD.utils.config import BASE_URL, ETERNITY_RING, TWO_STONE, FIVE_STONE
+from utils.cart_count import CartCount
 
 
 class HomePage(BasePage):
 
     def __init__(self, page):
         super().__init__(page)
+
+        self.cart_count = CartCount(page)
 
     def open_home(self):
         self.open_url(BASE_URL)
@@ -27,6 +32,14 @@ class HomePage(BasePage):
         if badge.strip() == "":
             return 0
         return int(badge)
+
+    def get_cart_badge_two(self):
+
+        return self.cart_count.get_home_cart_count(
+            HomeLocators.CART_BADGE
+        )
+
+    
 
     def logout(self):
         """
