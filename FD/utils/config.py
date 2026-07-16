@@ -3,9 +3,10 @@ from pathlib import Path
 
 # BASE SITE URLS
 
-BASE_URL = "https://ap-diam.com/"
+BASE_URL = "https://friendlydiamonds.com/"
 
 REGISTER_URL = "https://ap-diam.com/register"
+REGISTER_PRODUCTION_URL = "https://friendlydiamonds.com/register"
 LOGIN_URL = "https://friendlydiamonds.com/login"
 
 CYO_R_URL = "https://friendlydiamonds.com/ring-settings"  # CYO Ring Settings URL
@@ -26,6 +27,10 @@ BESPOKE_JEWELRY_URL = "https://friendlydiamonds.com/customized-jewelry"
 
 
 FCI_quiz= "https://friendlydiamonds.com/fci/engagement-ring-quiz"
+
+ETERNITY_RING= "https://friendlydiamonds.com/wedding-rings/eternity-rings"
+TWO_STONE= "https://friendlydiamonds.com/toi-et-moi-engagement-rings"
+FIVE_STONE= "https://friendlydiamonds.com/wedding-rings/anniversary-rings?Style=Five-stone"
 
 
 

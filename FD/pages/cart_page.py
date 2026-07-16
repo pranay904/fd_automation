@@ -1,5 +1,6 @@
 import re
 from FD.pages.base_page import BasePage
+from FD.locators.cart_locators import CartLocators
 
 
 # ============================================================
@@ -341,4 +342,15 @@ class CartPage(BasePage):
         print("  [CART OVERALL]", "FAIL" if failed else "PASS")
 
         return results
+
+    # ========================================================
+    # TC-FD-CART-001 — CHECKOUT
+    # ========================================================
+
+    def click_checkout(self):
+        """Click Continue to Payment / Checkout on the shopping bag page."""
+        self.page.locator(CartLocators.CONTINUE_TO_PAYMENT).wait_for(state="visible", timeout=15000)
+        self.page.locator(CartLocators.CONTINUE_TO_PAYMENT).click()
+        self.page.wait_for_load_state("networkidle")
+        print("[INFO] Clicked Checkout / Continue to Payment")
 

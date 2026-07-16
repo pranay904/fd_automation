@@ -3,4 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.14 (PythonProject2)" />
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (fd_automation)" project-jdk-type="Python SDK" />
 </project>
