@@ -2,7 +2,7 @@ import time
 
 from playwright.sync_api import expect
 
-from FD.utils.config import REGISTER_URL, LOGIN_URL
+from FD.utils.config import REGISTER_URL, LOGIN_URL, REGISTER_PRODUCTION_URL
 from FD.utils.email_generator import generate_email
 from FD.utils.json_reader import read_json_file, file_path
 
@@ -34,6 +34,9 @@ class RegisterPage:
     def open_register_page(self):
         """Navigate to the registration page"""
         self.page.goto(REGISTER_URL)
+
+    def open_register_production(self):
+        self.page.goto(REGISTER_PRODUCTION_URL)
 
     def register_user(self):
         """Fill registration form and submit"""
