@@ -71,7 +71,7 @@ class QuickCartPage(BasePage):
         """Click the View Bag button inside the quick cart drawer."""
         self.page.locator(QuickCartLocators.VIEW_BAG).wait_for(state="visible", timeout=10000)
         self.click(QuickCartLocators.VIEW_BAG)
-        self.page.wait_for_load_state("load")
+        #self.page.wait_for_load_state("load")
         self.page.locator(CartLocators.CART_HEADING).wait_for(state="visible", timeout=15000)
         print("[INFO] Clicked View Bag — on Shopping Bag page")
 

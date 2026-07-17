@@ -86,9 +86,18 @@ class CartPage(BasePage):
 
     def click_checkout(self):
         """Click the Continue to Payment button on the shopping bag page."""
-        self.page.locator(CartLocators.CONTINUE_TO_PAYMENT).wait_for(state="visible", timeout=15000)
-        self.click(CartLocators.CONTINUE_TO_PAYMENT)
-        self.page.wait_for_load_state("load")
+
+        checkout_btn = self.page.locator(
+            CartLocators.CONTINUE_TO_PAYMENT
+        )
+
+        # Select visible checkout button
+        checkout_btn = checkout_btn.filter(
+            visible=True
+        )
+
+        checkout_btn.click()
+
         print("[INFO] Clicked Checkout / Continue to Payment")
 
     def get_cart_page_count(self):
@@ -96,5 +105,8 @@ class CartPage(BasePage):
         return self.cart_count.get_cart_page_count(
             CartLocators.CART_COUNT_SPAN
         )
+
+
+
 
 

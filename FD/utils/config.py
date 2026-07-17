@@ -9,7 +9,7 @@ REGISTER_URL = "https://ap-diam.com/register"
 REGISTER_PRODUCTION_URL = "https://friendlydiamonds.com/register"
 LOGIN_URL = "https://friendlydiamonds.com/login"
 
-CYO_R_URL = "https://friendlydiamonds.com/ring-settings"  # CYO Ring Settings URL
+RING_SETTING = "https://friendlydiamonds.com/ring-settings"  # CYO Ring Settings URL
 DIAMOND_SETTING_URL = "https://friendlydiamonds.com/loose-diamonds?cyo=ring"  # Diamond Setting URL
 
 
