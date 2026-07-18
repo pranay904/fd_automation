@@ -23,7 +23,7 @@ class CYOSettingPLPPage:
 
     def go_to(self):
         """Navigate to the CYO Ring Settings PLP page."""
-        self.page.goto("https://ap-diam.com/ring-settings")
+        self.page.goto("https://friendlydiamonds.com/ring-settings")
         self.page.wait_for_selector("(//div[@class='product_box'])[2]", state="visible", timeout=10000)
 
     def get_product_details(self):
