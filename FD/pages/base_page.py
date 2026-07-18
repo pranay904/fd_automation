@@ -10,9 +10,11 @@ class BasePage:
         self.page = page
 
     def open_url(self, url):
-
-
-        self.page.goto(url)
+        self.page.goto(
+            url,
+            wait_until="domcontentloaded",
+            timeout=60000
+        )
 
     def click(self, locator):
         self.page.click(locator)

@@ -15,7 +15,7 @@ class CheckoutAddress(BasePage):
         # LOAD YAML TEST DATA
         # ============================================================
 
-        with open("FD/config/credentials.yaml", "r") as file:
+        with open("config/credentials.yaml", "r") as file:
             data = yaml.safe_load(file)
 
         self.user = data["default_user"]
@@ -303,7 +303,7 @@ class CheckoutAddress(BasePage):
             # ====================================================
 
             phone_field = self.page.locator(
-                "//input[@name='shipping_phone']"
+                "//input[@id='MazInputPhoneNumber-v-0-0-9-0-0-phone']"
             )
 
             phone_field.fill(phone)
