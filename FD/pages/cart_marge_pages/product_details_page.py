@@ -77,7 +77,7 @@ class ProductDetailsPage(BasePage, SelectRingSize):
         btn.scroll_into_view_if_needed()
         btn.wait_for(state="visible")
 
-        self.page.wait_for_timeout(800)
+        self.page.wait_for_timeout(10000)
         btn.click()
         print("[INFO] Add to Cart clicked — waiting for cart to update...")
 
@@ -91,7 +91,7 @@ class ProductDetailsPage(BasePage, SelectRingSize):
                     const match = el.innerText.match(/\\((\\d+)\\)/);
                     return match && parseInt(match[1]) > 0;
                 }""",
-                timeout=15000
+                timeout=20000
             )
             print("[INFO] Cart updated — item confirmed in quick cart")
         except Exception as e:

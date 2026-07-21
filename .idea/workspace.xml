@@ -5,22 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa347c3-eb55-4b97-88e4-7a4cd91d0934" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FD/tests/cart_marge/test_cart_004_multi_tab.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FD/utils/cart_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FD/tests/cart_marge/test_TC_007_Cart_Login_Window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/locators/listing_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/locators/listing_locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/locators/cart_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/locators/cart_locators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/homepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/homepage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/listing.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/listing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/product_details_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/product_details_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/quick_cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/quick_cart.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FD/pages/cart_marge_pages/select_ring_size.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/cart_marge_pages/select_ring_size.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/pages/login/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/pages/login/login_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FD/tests/cart_marge/cart_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/cart_marge/cart_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/cart_marge/shared_cart_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/cart_marge/shared_cart_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FD/tests/cart_marge/test_TC_FD_CART_002.py" beforeDir="false" afterPath="$PROJECT_DIR$/FD/tests/cart_marge/test_TC_FD_CART_002.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="175" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,6 +48,69 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Programs/Python/Python314/Lib/site-packages/utils/__init__.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="3.163923413461324E-239" />
+      <entry key="S60" value="5.6248763661624814E-120" />
+      <entry key="M2" value="2.3716821806820064E-60" />
+      <entry key="M5" value="1.412649059818108E-24" />
+      <entry key="M10" value="1.2095290998883961E-12" />
+      <entry key="M15" value="1.3359726392258108E-8" />
+      <entry key="M30" value="3.906355134943361E-4" />
+      <entry key="H1" value="0.12684394141423513" />
+      <entry key="H2" value="2.5364392877907567" />
+      <entry key="H4" value="12.712801337082318" />
+      <entry key="D1" value="95.17704503262998" />
+      <entry key="W1" value="154.36615566968217" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0000000000000007" />
+      <entry key="M15" value="1.0000000000833826" />
+      <entry key="M30" value="1.000012185096776" />
+      <entry key="H1" value="1.0048576080462908" />
+      <entry key="H2" value="1.0989569288594487" />
+      <entry key="H4" value="1.5057643444522173" />
+      <entry key="D1" value="4.967406152959622" />
+      <entry key="W1" value="7.434909762501822" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="7.17399934256619E-17" />
+      <entry key="MS500" value="5.904080448405082E-4" />
+      <entry key="S2" value="0.15587916352524459" />
+      <entry key="S5" value="0.47546135822161717" />
+      <entry key="S10" value="0.6895370608035635" />
+      <entry key="S30" value="0.8834579254137099" />
+      <entry key="S60" value="0.9399244253735031" />
+      <entry key="M2" value="0.9694969960621348" />
+      <entry key="M5" value="0.9876852932271039" />
+      <entry key="M10" value="0.9938235724863389" />
+      <entry key="M15" value="0.9958781447244008" />
+      <entry key="M30" value="0.9983396297844449" />
+      <entry key="H1" value="1.1306471314564193" />
+      <entry key="H2" value="3.6346644983414094" />
+      <entry key="H4" value="14.217790465553843" />
+      <entry key="D1" value="100.14386532983718" />
+      <entry key="W1" value="161.80093950743858" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -87,11 +152,16 @@
     "Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails.executor": "Run",
     "Python tests.pytest for FD.tests.test_register.test_register_user.executor": "Run",
     "Python tests.pytest for OMS.tests.test_create_pos_cyo_order.TestCreateCYOOrder.test_create_cyo_order.executor": "Run",
+    "Python tests.pytest for tests.cart_marge.test_TC_FD_CART_002.test_TC_FD_CART_002.executor": "Run",
+    "Python tests.pytest in test_TC_007_Cart_Login_Window.py.executor": "Run",
+    "Python tests.pytest in test_TC_05_Reg_User.py.executor": "Run",
     "Python tests.pytest in test_TC_FD_CART_001.py.executor": "Run",
     "Python tests.pytest in test_TC_FD_CART_002.py.executor": "Run",
     "Python tests.pytest in test_cart_004_multi_tab.py.executor": "Run",
+    "Python tests.pytest in test_cart_guest_to_regi_checkout_006.py.executor": "Run",
     "Python tests.pytest in test_checkout_flow.py.executor": "Run",
     "Python.register.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -124,7 +194,7 @@
       <recent name="C:\Users\DELL\python_automation\Fd_Functional_Tets\FD\pages\forms" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_cart_004_multi_tab.py">
+  <component name="RunManager" selected="Python tests.pytest in test_TC_FD_CART_002.py">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Fd_Functional_Tets" />
       <option name="ENV_FILES" value="" />
@@ -186,24 +256,44 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for FD.tests.test_login.test_login_user_Used_Credentails" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="Fd_Functional_Tets" />
+    <configuration name="pytest for tests.cart_marge.test_TC_FD_CART_002.test_TC_FD_CART_002" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="fd_automation" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FD" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;FD.tests.test_login.test_login_user_Used_Credentails&quot;" />
+      <option name="_new_target" value="&quot;tests.cart_marge.test_TC_FD_CART_002.test_TC_FD_CART_002&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test_TC_007_Cart_Login_Window.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="fd_automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FD" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/FD/tests/cart_marge/test_TC_007_Cart_Login_Window.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest in test_TC_FD_CART_001.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -246,26 +336,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_cart_004_multi_tab.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="fd_automation" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FD" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/FD/tests/cart_marge/test_cart_004_multi_tab.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest in test_checkout_flow.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="fd_automation" />
       <option name="ENV_FILES" value="" />
@@ -288,11 +358,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_cart_004_multi_tab.py" />
-        <item itemvalue="Python tests.pytest in test_TC_FD_CART_001.py" />
         <item itemvalue="Python tests.pytest in test_TC_FD_CART_002.py" />
+        <item itemvalue="Python tests.pytest in test_TC_FD_CART_001.py" />
+        <item itemvalue="Python tests.pytest in test_TC_007_Cart_Login_Window.py" />
+        <item itemvalue="Python tests.pytest for tests.cart_marge.test_TC_FD_CART_002.test_TC_FD_CART_002" />
         <item itemvalue="Python tests.pytest in test_checkout_flow.py" />
-        <item itemvalue="Python tests.pytest for FD.tests.test_login.test_login_user_Used_Credentails" />
       </list>
     </recent_temporary>
   </component>
@@ -317,6 +387,7 @@
       <workItem from="1768799757671" duration="14000" />
       <workItem from="1783322029023" duration="20067000" />
       <workItem from="1783404421333" duration="15098000" />
+      <workItem from="1784545053103" duration="23871000" />
     </task>
     <servers />
   </component>
@@ -404,11 +475,15 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_cart_004_multi_tab_py.coverage" NAME="pytest in test_cart_004_multi_tab.py Coverage Results" MODIFIED="1783519526759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
-    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_checkout_flow_py.coverage" NAME="pytest in test_checkout_flow.py Coverage Results" MODIFIED="1783345805637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_cart_004_multi_tab_py.coverage" NAME="pytest in test_cart_004_multi_tab.py Coverage Results" MODIFIED="1784372333711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_checkout_flow_py.coverage" NAME="pytest in test_checkout_flow.py Coverage Results" MODIFIED="1784375615115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_007_Cart_Login_Window_py.coverage" NAME="pytest in test_TC_007_Cart_Login_Window.py Coverage Results" MODIFIED="1784611939426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
     <SUITE FILE_PATH="coverage/Fd_Functional_Tets$.coverage" NAME=" Coverage Results" MODIFIED="1768568588013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_FD_CART_002_py.coverage" NAME="pytest in test_TC_FD_CART_002.py Coverage Results" MODIFIED="1783432071171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_cart_guest_to_regi_checkout_006_py.coverage" NAME="pytest in test_cart_guest_to_regi_checkout_006.py Coverage Results" MODIFIED="1784372255494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_FD_CART_002_py.coverage" NAME="pytest in test_TC_FD_CART_002.py Coverage Results" MODIFIED="1784641385991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
     <SUITE FILE_PATH="coverage/Fd_Functional_Tets$register.coverage" NAME="register Coverage Results" MODIFIED="1767693840257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pages" />
-    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_FD_CART_001_py.coverage" NAME="pytest in test_TC_FD_CART_001.py Coverage Results" MODIFIED="1783513278983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_05_Reg_User_py.coverage" NAME="pytest in test_TC_05_Reg_User.py Coverage Results" MODIFIED="1784372201257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_for_tests_cart_marge_test_TC_FD_CART_002_test_TC_FD_CART_002.coverage" NAME="pytest for tests.cart_marge.test_TC_FD_CART_002.test_TC_FD_CART_002 Coverage Results" MODIFIED="1784545381246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
+    <SUITE FILE_PATH="coverage/fd_automation$pytest_in_test_TC_FD_CART_001_py.coverage" NAME="pytest in test_TC_FD_CART_001.py Coverage Results" MODIFIED="1784641068813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FD" />
   </component>
 </project>

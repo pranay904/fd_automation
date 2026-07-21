@@ -18,7 +18,7 @@ def save(email: str, password: str, cart_count: int):
 
 
 def load():
-    if not DATA_FILE.exists():
+    if not DATA_FILE.exists(): 
         return None
 
     with open(DATA_FILE, "r") as f:

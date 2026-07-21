@@ -18,6 +18,7 @@ class CartLocators:
 
     # Sign Up link on the login page
     SIGN_UP_LINK = "//a[normalize-space()='Sign Up']"
+    SIGN_IN_LINK = "//a[normalize-space()='Sign in']"
 
     # Checkout button on shopping bag page
     CONTINUE_TO_PAYMENT = "//button[contains(@class,'btn-p-animation') and .//span[normalize-space()='CONTINUE TO PAYMENT']]"

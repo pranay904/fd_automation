@@ -38,6 +38,46 @@ class LoginPage:
         self.page.wait_for_timeout(5000)
         print(f"[INFO] Logged in as {email}")
 
+
+    def login_cart_modal(self, email: str, password: str):
+        """Login with email, password - using cart page login modal"""
+        self.page.locator(
+            "//div[@class='modal_body modal_sm']"
+        )
+
+        self.page.wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        # Wait for modal inputs
+        self.page.locator("[name='email']").fill(email).wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        self.page.locator("[name='password']").fill(password).wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        self.page.locator('button:has-text("LOGIN")').click().wait_for(state="visible",timeout=10000)
+
+        # TEMP DEBUG - add here
+        print(
+            "Email count:",
+            self.page.locator("[name='email']").count()
+        )
+
+        print(
+            "Password count:",
+            self.page.locator("[name='password']").count()
+        )
+
+        print("[INFO] Login modal is ready")
+
+
+
     def close_popup_if_present(self):
         pass
 

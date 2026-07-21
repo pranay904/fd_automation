@@ -72,6 +72,23 @@ class CartPage(BasePage):
         self.page.locator("//input[@name='first_name']").wait_for(state="visible", timeout=10000)
         print("[INFO] Clicked Sign Up — on Register page")
 
+    def navigate_to_sign_in(self):
+        """Click login icon → open login modal."""
+
+        self.page.locator(CartLocators.SIGN_IN).wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        self.click(CartLocators.SIGN_IN)
+
+        # Wait for login modal
+        self.page.locator(
+            "//div[@class='modal_body modal_sm']"
+        ).wait_for(state="visible", timeout=10000)
+        
+
+
     def navigate_to_login(self):
         """Click login icon → land on login page (for TC-002 login flow)."""
         self.page.locator(CartLocators.LOGIN_ICON).wait_for(state="visible", timeout=10000)
