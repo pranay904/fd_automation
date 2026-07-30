@@ -38,43 +38,29 @@ class LoginPage:
         self.page.wait_for_timeout(5000)
         print(f"[INFO] Logged in as {email}")
 
-
     def login_cart_modal(self, email: str, password: str):
-        """Login with email, password - using cart page login modal"""
-        self.page.locator(
-            "//div[@class='modal_body modal_sm']"
-        )
+        """Login using cart page login modal."""
 
-        self.page.wait_for(
-            state="visible",
-            timeout=10000
-        )
+        # Login modal
+        modal = self.page.locator("div.modal_body.modal_sm")
+        modal.wait_for(state="visible", timeout=10000)
 
-        # Wait for modal inputs
-        self.page.locator("[name='email']").fill(email).wait_for(
-            state="visible",
-            timeout=10000
-        )
+        # Email
+        email_input = modal.locator("input[name='email']")
+        email_input.wait_for(state="visible", timeout=10000)
+        email_input.fill(email)
 
-        self.page.locator("[name='password']").fill(password).wait_for(
-            state="visible",
-            timeout=10000
-        )
+        # Password
+        password_input = modal.locator("input[name='password']")
+        password_input.wait_for(state="visible", timeout=10000)
+        password_input.fill(password)
 
-        self.page.locator('button:has-text("LOGIN")').click().wait_for(state="visible",timeout=10000)
+        # Login button
+        login_btn = modal.locator("button[type='submit']")
+        login_btn.wait_for(state="visible", timeout=10000)
+        login_btn.click()
 
-        # TEMP DEBUG - add here
-        print(
-            "Email count:",
-            self.page.locator("[name='email']").count()
-        )
-
-        print(
-            "Password count:",
-            self.page.locator("[name='password']").count()
-        )
-
-        print("[INFO] Login modal is ready")
+        print(f"[INFO] Logged in as {email} from cart modal.")
 
 
 

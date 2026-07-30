@@ -9,7 +9,7 @@ from pages.cart_marge_pages.quick_cart import QuickCartPage
 from pages.cart_marge_pages.cart_page import CartPage
 
 
-def test_TC_FD_CART_004(shared_page):
+def test_TC_FD_CART_003(shared_page):
 
 
     # TAB 1

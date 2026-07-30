@@ -65,14 +65,26 @@ def test_TC_007_Cart_Login_Window(shared_page):
     assert bag_count == 1, f"[FAIL] Shopping Bag count: expected 1, got {bag_count}"
     print(f"[PASS] Shopping Bag count = {bag_count}")
 
+    # ------------------------------------------------------------------
+    # Step 11 — Login from cart modal
+    # ------------------------------------------------------------------
     cart.navigate_to_sign_in()
-
-    # login And password
 
     login.login_cart_modal(email, password)
 
+    # Wait for login modal to close
+    page.locator("div.modal_body.modal_sm").wait_for(
+        state="hidden",
+        timeout=15000
+    )
 
-    count_merged= cart.verify_shopping_bag_count(logged_in=True)
+    # Give the cart merge API time to update the UI
+    page.wait_for_timeout(3000)
+
+    # ------------------------------------------------------------------
+    # Step 12 — Verify merged cart count
+    # ------------------------------------------------------------------
+    count_merged = cart.verify_shopping_bag_count()
 
     expected = saved_cart + count_guest
 
@@ -86,32 +98,35 @@ def test_TC_007_Cart_Login_Window(shared_page):
         f"({saved_cart} existing + {count_guest} guest = {count_merged})"
     )
 
-
     # ------------------------------------------------------------------
     # Step 13 — Checkout → no error
     # ------------------------------------------------------------------
     cart.click_checkout()
 
     invalid_popup = page.locator("//div[@class='modal_body modal_sm']")
+
     if invalid_popup.is_visible():
-        pytest.fail("[FAIL] Invalid cart identifier popup displayed — cart merge failed")
+        pytest.fail(
+            "[FAIL] Invalid cart identifier popup displayed — cart merge failed"
+        )
 
     current_url = page.url
-    page_body   = page.locator("body").inner_text().lower()
+    page_body = page.locator("body").inner_text().lower()
+
     assert "404" not in page_body, "[FAIL] 404 on checkout page"
     assert "something went wrong" not in page_body, "[FAIL] Error on checkout page"
-    assert "error" not in current_url.lower(), f"[FAIL] Error in URL: {current_url}"
+    assert "error" not in current_url.lower(), (
+        f"[FAIL] Error in URL: {current_url}"
+    )
 
     print(f"[PASS] Checkout loaded without errors — URL: {current_url}")
 
-    # --------------------------------------------------------------
+    # ------------------------------------------------------------------
     # Save latest cart count only after complete TC-007 success
-    # --------------------------------------------------------------
+    # ------------------------------------------------------------------
     update_cart_count(expected)
 
-    print(
-        f"[INFO] Updated shared cart count in JSON = {count_merged}"
-    )
+    print(f"[INFO] Updated shared cart count in JSON = {count_merged}")
 
 
 
