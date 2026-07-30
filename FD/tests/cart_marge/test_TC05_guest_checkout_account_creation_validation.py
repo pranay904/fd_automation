@@ -1,7 +1,30 @@
+
+"""
+TC-FD-CART-005 — Guest CYO Ring Checkout With Account Registration Validation
+
+Test Scenario:
+Validate that a guest user can create a custom ring, add it to cart,
+proceed to checkout, create an account during checkout, and successfully
+reach the payment section.
+
+Test Steps:
+1. Open CYO ring setting page.
+2. Select a ring setting.
+3. Select a diamond and complete ring configuration.
+4. Add completed ring to bag.
+5. Verify guest quick cart count.
+6. Verify shopping bag count.
+7. Proceed to checkout.
+8. Create a new user account during checkout.
+9. Proceed to payment section.
+10. Validate checkout page loads successfully without errors.
+
+Expected Result:
+Guest user should be able to complete CYO ring creation, register during
+checkout, and successfully proceed to payment.
+"""
 import time
-
 import pytest
-
 from pages.cart_marge_pages import product_details_page
 from pages.cart_marge_pages.cart_page import CartPage
 from pages.cart_marge_pages.checkout_page import CheckoutPage

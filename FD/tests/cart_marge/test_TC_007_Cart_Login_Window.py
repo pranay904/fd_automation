@@ -88,6 +88,11 @@ def test_TC_007_Cart_Login_Window(shared_page):
 
     expected = saved_cart + count_guest
 
+    print(f"[INFO] Saved cart      : {saved_cart}")
+    print(f"[INFO] Guest cart      : {count_guest}")
+    print(f"[INFO] Expected merged : {expected}")
+    print(f"[INFO] Actual merged   : {count_merged}")
+
     assert count_merged == expected, (
         f"[FAIL] Cart merge failed. "
         f"Expected {expected}, got {count_merged}"
@@ -124,7 +129,7 @@ def test_TC_007_Cart_Login_Window(shared_page):
     # ------------------------------------------------------------------
     # Save latest cart count only after complete TC-007 success
     # ------------------------------------------------------------------
-    update_cart_count(expected)
+    update_cart_count(count_merged)
 
     print(f"[INFO] Updated shared cart count in JSON = {count_merged}")
 

@@ -5,6 +5,8 @@ DATA_FILE = Path(__file__).parent / "cart_data.json"
 
 
 def save(email: str, password: str, cart_count: int):
+    print(f"[INFO] Saving cart data to: {DATA_FILE.resolve()}")
+
     data = {
         "email": email,
         "password": password,
@@ -18,7 +20,9 @@ def save(email: str, password: str, cart_count: int):
 
 
 def load():
-    if not DATA_FILE.exists(): 
+    print(f"[INFO] Reading cart data from: {DATA_FILE.resolve()}")
+
+    if not DATA_FILE.exists():
         return None
 
     with open(DATA_FILE, "r") as f:
@@ -29,6 +33,8 @@ def load():
 
 
 def update_cart_count(cart_count: int):
+    print(f"[INFO] Updating cart data in: {DATA_FILE.resolve()}")
+
     data = load()
 
     if not data:

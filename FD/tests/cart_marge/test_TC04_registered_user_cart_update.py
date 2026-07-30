@@ -1,5 +1,33 @@
-import time
 
+"""
+TC-FD-CART-004 — Registered User Multiple Product Cart Validation
+
+Test Scenario:
+Validate that a registered user can add multiple products to the cart,
+maintain the correct cart count, verify shopping bag details, and proceed
+to checkout successfully without errors.
+
+Test Steps:
+1. Open the user registration page.
+2. Create a new registered user account.
+3. Navigate to the Eternity Ring listing page.
+4. Add the first product to cart.
+5. Verify quick cart count is updated to 1.
+6. Navigate to the Five Stone listing page.
+7. Add the second product to cart.
+8. Verify quick cart count is updated to 2.
+9. Navigate to Shopping Bag and verify total cart item count.
+10. Return to the product page and add another item.
+11. Verify quick cart count is updated to 3.
+12. Proceed to checkout.
+13. Validate checkout page loads successfully without cart or application errors.
+
+Expected Result:
+Registered users should be able to add multiple products to the cart,
+cart count should update correctly after each addition, shopping bag should
+display the correct item count, and checkout should complete successfully.
+"""
+import time
 import pytest
 
 from pages.cart_marge_pages.cart_page import CartPage
