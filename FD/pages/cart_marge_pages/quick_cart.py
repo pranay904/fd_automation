@@ -72,7 +72,7 @@ class QuickCartPage(BasePage):
         self.page.locator(QuickCartLocators.VIEW_BAG).wait_for(state="visible", timeout=10000)
         self.click(QuickCartLocators.VIEW_BAG)
         #self.page.wait_for_load_state("load")
-        self.page.locator(CartLocators.CART_HEADING).wait_for(state="visible", timeout=15000)
+        self.page.locator(CartLocators.CART_HEADING).wait_for(state="visible")
         print("[INFO] Clicked View Bag — on Shopping Bag page")
 
     def click_signup(self):

@@ -94,6 +94,7 @@ def test_cart_reg_checkout_page(page):
 
 
     # enter the details on checkout  and register user
+    
     checkout_page.create_account_and_fill_details()
     checkout_page.click_proceed_to_payment()
 
