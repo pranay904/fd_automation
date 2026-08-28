@@ -3,6 +3,7 @@ test_checkout_flow.py
 ---------------------
 Full checkout flow test updated with NEW ShoppingBag class
 """
+import time
 
 import pytest
 
@@ -234,6 +235,7 @@ def test_setting_and_diamond_details_match(pages):
     all_results.append(
         checkout_address.click_proceed_to_payment()
     )
+    time.sleep(5)
 
     # ============================================================
     # STEP 10 : PAYMENT PAGE

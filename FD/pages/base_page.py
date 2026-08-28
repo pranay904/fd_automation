@@ -1,5 +1,5 @@
 import time
-
+from playwright.sync_api import expect
 
 def retry_until_true(param, timeout, error_msg):
     pass
@@ -10,9 +10,11 @@ class BasePage:
         self.page = page
 
     def open_url(self, url):
-
-
-        self.page.goto(url)
+        self.page.goto(
+            url,
+            wait_until="domcontentloaded",
+            timeout=60000
+        )
 
     def click(self, locator):
         self.page.click(locator)
@@ -47,6 +49,15 @@ class BasePage:
             timeout=timeout,
             error_msg=f"Element not visible: {locator}"
         )
+
+    def text(self, locator):
+        return self.page.locator(locator).inner_text()
+
+    def visible(self, locator):
+        expect(self.page.locator(locator)).to_be_visible()
+
+    def wait(self):
+        self.page.wait_for_load_state("networkidle")
 
 
 

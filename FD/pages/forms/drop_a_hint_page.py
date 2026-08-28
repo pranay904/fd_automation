@@ -1,3 +1,5 @@
+import time
+
 from FD.components.base_form_page import BaseFormPage
 from FD.utils.config import BASE_URL, CYO_R_URL
 from playwright.sync_api import expect
@@ -17,7 +19,8 @@ class DropHint(BaseFormPage):
         self.page.locator("(//div[@class='mb-4 jewelry_block col-lg-3 col-md-4 col-6'])[2]").click()
 
         drop_hint = self.page.locator("div.drop_hint")
-
+        self.page.locator("div.filter_row.mb-2 span.unchecked").click()
+        time.sleep(2)
         # Validate text
         expect(drop_hint).to_contain_text("Drop a hint")
         # Click

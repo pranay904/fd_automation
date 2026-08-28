@@ -2,7 +2,7 @@ import time
 
 from playwright.sync_api import expect
 
-from FD.utils.config import REGISTER_URL, LOGIN_URL
+from FD.utils.config import REGISTER_URL, LOGIN_URL, REGISTER_PRODUCTION_URL
 from FD.utils.email_generator import generate_email
 from FD.utils.json_reader import read_json_file, file_path
 
@@ -35,10 +35,15 @@ class RegisterPage:
         """Navigate to the registration page"""
         self.page.goto(REGISTER_URL)
 
+    def open_register_production(self):
+        self.page.goto(REGISTER_PRODUCTION_URL, wait_until="commit")
+        time.sleep(3)
+
+
     def register_user(self):
         """Fill registration form and submit"""
-        self.page.locator("//input[@name='first_name']").fill(self.data["register_user"]["firstName"])
-        time.sleep(2)
+        self.page.locator('[name="first_name"]').fill(self.data["register_user"]["firstName"])
+        time.sleep(3)
         self.page.locator("//input[@name='last_name']").fill(self.data["register_user"]["lastName"])
         time.sleep(2)
         self.page.locator("div[class='col-md-12 pb-4 column'] input[name='email']").fill(self.email)
@@ -49,10 +54,6 @@ class RegisterPage:
         self.page.locator("//span[normalize-space()='Sign Up']").click()
         self.page.wait_for_timeout(10000)
         time.sleep(10)
-
-
-
-        return self.email  # Return email for login test
 
     # ---------------- Logout ----------------
     def logout_user(self, hasText=None):
