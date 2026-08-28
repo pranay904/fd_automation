@@ -1,3 +1,29 @@
+
+"""
+TC-FD-CART-003 — Multi Tab Cart Synchronization Validation
+
+Test Scenario:
+Validate that cart items remain synchronized across multiple browser tabs
+within the same browser session and that cart updates from one tab reflect
+correctly in another tab.
+
+Test Steps:
+1. Open the Two Stone product listing page in Tab 1.
+2. Add the first product to cart from Tab 1.
+3. Verify quick cart count and shopping bag count are updated to 1.
+4. Open a new browser tab using the same browser context.
+5. Verify the existing cart is synchronized in Tab 2.
+6. Add a second product from Tab 2.
+7. Verify the cart count is updated to 2 in Tab 2.
+8. Switch back to Tab 1 and verify the updated cart count is synchronized.
+9. Proceed to checkout from Tab 2.
+10. Validate checkout page loads successfully without cart or application errors.
+
+Expected Result:
+Cart data should be shared across tabs within the same session.
+Adding or updating products from any tab should reflect in all active tabs,
+and checkout should complete without errors.
+"""
 import time
 
 import pytest
@@ -9,7 +35,7 @@ from pages.cart_marge_pages.quick_cart import QuickCartPage
 from pages.cart_marge_pages.cart_page import CartPage
 
 
-def test_TC_FD_CART_004(shared_page):
+def test_TC_FD_CART_003(shared_page):
 
 
     # TAB 1

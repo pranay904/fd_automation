@@ -1,3 +1,5 @@
+import time
+
 from FD.pages.base_page import BasePage
 from FD.pages.cart_page import log_pass, log_fail
 
@@ -276,6 +278,7 @@ class PaymentPage(BasePage):
                 )
 
                 pay_now_btn.click()
+                time.sleep(17)
 
                 print("  [INFO] PAY NOW button clicked")
 

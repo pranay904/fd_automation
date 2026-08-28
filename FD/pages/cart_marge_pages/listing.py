@@ -20,6 +20,7 @@ class Listing(BasePage):
 
     def open_url_eternity(self):
         self.open_url(ETERNITY_RING)
+        self.page.wait_for_load_state("domcontentloaded")
 
 
     def get_eternity_first_product_details(self):
@@ -48,9 +49,8 @@ class Listing(BasePage):
         el = self.page.locator(ListingLocators.FIRST_PRODUCT)
         el.wait_for(state="visible", timeout=15000)
         el.scroll_into_view_if_needed()
-        self.page.wait_for_timeout(300)
         el.click()
-        self.page.wait_for_load_state("load")
+        self.page.wait_for_load_state("domcontentloaded")
         # Wait for PDP h1 to confirm navigation succeeded
         self.page.wait_for_selector("//h1", timeout=20000)
         print("[INFO] Opened first product from listing")

@@ -36,12 +36,14 @@ class RegisterPage:
         self.page.goto(REGISTER_URL)
 
     def open_register_production(self):
-        self.page.goto(REGISTER_PRODUCTION_URL)
+        self.page.goto(REGISTER_PRODUCTION_URL, wait_until="commit")
+        time.sleep(3)
+
 
     def register_user(self):
         """Fill registration form and submit"""
-        self.page.locator("//input[@name='first_name']").fill(self.data["register_user"]["firstName"])
-        time.sleep(2)
+        self.page.locator('[name="first_name"]').fill(self.data["register_user"]["firstName"])
+        time.sleep(3)
         self.page.locator("//input[@name='last_name']").fill(self.data["register_user"]["lastName"])
         time.sleep(2)
         self.page.locator("div[class='col-md-12 pb-4 column'] input[name='email']").fill(self.email)

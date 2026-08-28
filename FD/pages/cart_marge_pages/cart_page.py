@@ -72,12 +72,34 @@ class CartPage(BasePage):
         self.page.locator("//input[@name='first_name']").wait_for(state="visible", timeout=10000)
         print("[INFO] Clicked Sign Up — on Register page")
 
+    def navigate_to_sign_in(self):
+        """Click Sign In and wait for login modal."""
+
+        self.page.locator(CartLocators.SIGN_IN).wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        self.page.locator(CartLocators.SIGN_IN).click()
+
+        # Wait for login modal
+        modal = self.page.locator("div.modal_body.modal_sm")
+        modal.wait_for(state="visible", timeout=10000)
+
+        # Wait until email field is available
+        modal.locator("input[name='email']").wait_for(
+            state="visible",
+            timeout=10000
+        )
+        
+
+
     def navigate_to_login(self):
         """Click login icon → land on login page (for TC-002 login flow)."""
         self.page.locator(CartLocators.LOGIN_ICON).wait_for(state="visible", timeout=10000)
         self.click(CartLocators.LOGIN_ICON)
         self.page.wait_for_load_state("load")
-        self.page.locator("//input[@name='email']").wait_for(state="visible", timeout=10000)
+       # self.page.locator("//input[@name='email']").wait_for(state="visible", timeout=10000)
         print("[INFO] Clicked Login icon — on Login page")
 
     # ----------------------------------------------------------------

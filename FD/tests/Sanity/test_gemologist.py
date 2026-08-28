@@ -9,7 +9,7 @@ def test_gemologist(page):
 
     gemo = Gemologist(page)
 
-    gemo.naviagate_to_gemo()
+    gemo.navigate_to_gemo()
 
     # fill the details
 
